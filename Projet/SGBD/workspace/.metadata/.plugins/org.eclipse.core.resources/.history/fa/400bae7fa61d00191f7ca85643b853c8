@@ -1,0 +1,50 @@
+package impl;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Vector;
+
+import operateurs.Jointure;
+import stockage.Nuplet;
+
+public class JointureH implements Jointure {
+	public Nuplet merger(Nuplet n1, Nuplet n2) {
+		NupletInt[] tab = new NupletInt[n1.size() + n2.size()];
+		for(int i=0;i<n1.size();i++){
+			tab[i].putAtt(i, n1.getAtt(i));
+		}
+		int m = n1.size();
+		for(int j=0;j<n2.size(); j++) {
+				tab[m].putAtt(m, n2.getAtt(j));
+				m++;
+			}
+		return tab;
+	}
+	@Override
+	public Nuplet[] jointure(Nuplet[] t1, Nuplet[] t2, int att1, int att2) {
+		// TODO Auto-generated method stub
+//		Nuplet[] tab = new NupletInt[t1.length];
+//		Vector<Nuplet> v = new Vector<Nuplet>();
+//		HashMap<Object, Nuplet> hash = new HashMap<Object, Nuplet>();
+//		for (Nuplet n2 : t2) {
+//		    hash.put(n2.getAtt(att2), n2);
+//		}
+//		for (Nuplet n1: t1) {
+//			Nuplet hash_n2 = (Nuplet) hash.get(n1.getAtt(att1));
+//			if( hash_n2 != null) v.addElement(hash_n2);
+//		}
+		Nuplet[] tab = new NupletInt[t1.length];
+		int nbs = 0 ;
+		HashMap<Object, Nuplet> hash = new HashMap<Object, Nuplet>();
+		for (Nuplet n1 : t1) {
+		    hash.put(n1.getAtt(att1), n1);
+		}
+		for (Nuplet n2: t2) {
+			Nuplet hash_test = hash.get(n2.getAtt(att2));
+			tab[nbs] = merger(hash_test, n2);
+		}
+
+		return null;
+	}
+
+}

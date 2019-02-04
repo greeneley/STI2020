@@ -1,0 +1,154 @@
+package impl;
+
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Vector;
+
+import operateurs.Jointure;
+import stockage.Nuplet;
+
+public class JointureS implements Jointure {
+	private Nuplet[] tri_t1;
+	private Nuplet[] tri_t2;
+	public Nuplet joinTwoNuplet(Nuplet n1, Nuplet n2, int mergeAttribute) {
+        NupletInt merged = new NupletInt(n1.size() + n2.size() - 1);
+
+        for (int i = 0; i < n1.size(); i++)
+            merged.putAtt(i, n1.getAtt(i));
+        for (int i = 0; i < mergeAttribute; i++)
+            merged.putAtt(n1.size() + i, n2.getAtt(i));
+        for (int i = mergeAttribute + 1; i < n2.size(); i++)
+            merged.putAtt(n1.size() + i - 1, n2.getAtt(i));
+
+        return merged;
+    }
+	/*
+	 *  isCheckEOF: vérifier si le nuplet se termine ( EOF: end of file)
+	 *  @param: Nuplet[] t
+	 *  @param: count
+	 */
+	public Boolean isCheckEOF( Nuplet[] t, int count) {
+		if (count == t.length -1) {
+			return true;
+		} else {
+			return false;	
+		}
+	}
+	/*
+	 * 
+	 * hasNext retourne le nuplet suivant
+	 * n' = Next tuple in t after  n
+	 * @param: NupletInt n
+	 * @param: Nuplet[] t
+	 * @param: int count
+	 */
+	public NupletInt hasNext(NupletInt n, Nuplet[] t, int count) {
+		for (int i = 0; i < n.size(); i++)
+            n.putAtt(i, t[count].getAtt(i));
+		return n;
+	}
+	public void triFusion(Nuplet[] t1, Nuplet[] t2, int att1, int att2)
+	{
+		int[][] index_t1 = new int[t1.length][2];
+		int[][] index_t2 = new int[t2.length][2];
+		int     max_size_t;
+		
+		this.tri_t1   = new Nuplet[t1.length];
+		this.tri_t2   = new Nuplet[t2.length];
+				
+		/* ====================================
+		 * ============ Algorithme ============
+		 * ====================================
+		*/
+		if(t1.length>t2.length)
+		{
+			max_size_t = t1.length;
+		}
+		else
+		{
+			max_size_t = t2.length;
+		}
+		
+		// On va creer (salement) un tableau de {index, valeur_index} pour le tri
+		for(int i=0; i<max_size_t; i++)
+		{
+			try
+			{
+				index_t1[i] = new int[] {i, (byte)t1[i].getAtt(att1)};
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+			}
+			
+			try
+			{
+				index_t2[i] = new int[] {i, (byte)t2[i].getAtt(att2)};
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+			}
+		}
+		
+		// On applique un tri-fusion sur les deux int[][]
+		Arrays.sort(index_t1, Comparator.comparingInt(arr -> arr[1]));
+		Arrays.sort(index_t2, Comparator.comparingInt(arr -> arr[1]));
+		
+		// On cree (encore salement) les nouveaux Nuplets tries
+		for(int i=0; i<max_size_t; i++){
+			try{
+				this.tri_t1[i] = t1[index_t1[i][0]];
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+			}
+			try{
+				this.tri_t2[i] = t2[index_t2[i][0]];
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+			}
+		}
+	}
+	@Override
+	public Nuplet[] jointure(Nuplet[] t1, Nuplet[] t2, int att1, int att2) {
+		// TODO Auto-generated method stub
+		this.triFusion(t1, t2, att1, att2);
+		
+		Vector<Nuplet> value = new Vector<Nuplet>();
+		int r_count = 0;
+		NupletInt r = new NupletInt(t1[0].size());
+		r = hasNext(r, t1, r_count);
+		int s_count = 0;
+		NupletInt s = new NupletInt(t2[0].size());
+		s = hasNext(s, t2, s_count);
+		this.triFusion(t1, t2, att1, att2);
+		
+		while( !isCheckEOF(t1, r_count) && !isCheckEOF(t2,s_count)){
+			if((byte) r.getAtt(att1) > (byte) s.getAtt(att2)) {
+				s_count ++;
+				s = hasNext(s, t2, s_count);
+			} else if ( (byte) r.getAtt(att1) < (byte) s.getAtt(att2) ) {
+				r_count ++;
+				r = hasNext(r, t1, r_count);
+			} else {
+				
+				NupletInt tab = new NupletInt(r.size() + s.size() -1);
+				tab = (NupletInt)  joinTwoNuplet(r, s, att2);
+				value.addElement(tab);
+				r_count ++;
+				r = hasNext(r, t1, r_count);
+				s_count ++;
+				s = hasNext(s, t2, s_count);
+			}
+		}
+		Nuplet[] ret = new Nuplet[value.size()];
+		for(int i=0;i<value.size();i++)
+			ret[i] = value.elementAt(i);
+		return ret;
+	}
+
+}

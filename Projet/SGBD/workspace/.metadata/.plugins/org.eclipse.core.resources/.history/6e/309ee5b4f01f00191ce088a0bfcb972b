@@ -1,0 +1,151 @@
+package impl;
+
+import operateurs.Jointure;
+import stockage.Nuplet;
+
+public class JointureS implements Jointure {
+	public Nuplet joinTwoNuplet(Nuplet n1, Nuplet n2, int mergeAttribute) {
+        NupletInt merged = new NupletInt(n1.size() + n2.size() - 1);
+
+        for (int i = 0; i < n1.size(); i++)
+            merged.putAtt(i, n1.getAtt(i));
+        for (int i = 0; i < mergeAttribute; i++)
+            merged.putAtt(n1.size() + i, n2.getAtt(i));
+        for (int i = mergeAttribute + 1; i < n2.size(); i++)
+            merged.putAtt(n1.size() + i - 1, n2.getAtt(i));
+
+        return merged;
+    }
+	public Boolean isCheckEOF( Nuplet[] t, int count) {
+		if (count == t.length -1) {
+			return true;
+		} else {
+			return false;	
+		}
+	}
+	public NupletInt hasNext(NupletInt n, Nuplet[] t, int count) {
+		for (int i = 0; i < n.size(); i++)
+            n.putAtt(i, t[count].getAtt(i));
+		return n;
+	}
+	
+	@Override
+	public Nuplet[] jointure(Nuplet[] t1, Nuplet[] t2, int att1, int att2) {
+		// TODO Auto-generated method stub
+		
+		Nuplet[] tab = new NupletInt[t1.length];
+		int nbs = 0 ;
+		
+//		System.out.println(t1[0]);
+		int r_count = 0;
+		NupletInt r = new NupletInt(t1[0].size());
+		r = hasNext(r, t1, t1.length - 1);
+		int s_count = 0;
+		NupletInt s = new NupletInt(t2[0].size());
+		s = hasNext(s, t2, s_count);
+		
+		System.out.println(r);
+		System.out.println(t1[t1.length - 1]);
+		
+		//==================================
+		
+		
+		
+		
+		//===============================
+//		while( r != t1[t1.length - 1] && s != t2[t2.length - 1] ) {
+//			while((byte) r.getAtt(att1) < (byte) s.getAtt(att2)) {
+//				r_count ++;
+//				for (int i = 0; i < r.size(); i++)
+//		            r.putAtt(i, t1[r_count].getAtt(i));
+//			}
+//			
+//			while((byte) r.getAtt(att1) > (byte) s.getAtt(att2)) {
+//				s_count ++;
+//				for (int i = 0; i < s.size(); i++)
+//		            s.putAtt(i, t2[s_count].getAtt(i));
+//			}
+//			System.out.println(r);
+//			System.out.println("abc");
+//			int s_current_count = s_count;
+//			NupletInt m = new NupletInt(t2[0].size());
+//			for (int i = 0; i < m.size(); i++)
+//	            m.putAtt(i, t2[s_current_count].getAtt(i));
+//			while((byte) r.getAtt(att1) == (byte) m.getAtt(att2) ) {
+//				s = m;
+//				while((byte) r.getAtt(att1) == (byte) s.getAtt(att2)) {
+//					tab[nbs] = joinTwoNuplet(r, s, att2);
+//					nbs++;
+//					s_current_count++;
+//					for (int i = 0; i < s.size(); i++)
+//			            s.putAtt(i, t2[s_current_count].getAtt(i));
+//				}
+//				r_count++;
+//				for (int i = 0; i < r.size(); i++)
+//		            r.putAtt(i, t1[r_count].getAtt(i));
+//			}
+			
+			
+			
+			
+			
+			 //==================================================
+//			if ((byte) r.getAtt(att1) < (byte) s.getAtt(att2)) {
+//				r_count ++;
+//				for (int i = 0; i < r.size(); i++)
+//		            r.putAtt(i, t1[r_count].getAtt(i));
+//			} else if ((byte) r.getAtt(att1) > (byte) s.getAtt(att2)) {
+//				s_count ++;
+//				for (int i = 0; i < s.size(); i++)
+//		            s.putAtt(i, t2[s_count].getAtt(i));
+//			}
+//			else {
+////				System.out.println(r);
+////				System.out.println(s);
+//				System.out.println(s);
+//				
+////				tab[nbs] = new NupletInt(r.size() + s.size() -1);
+//				tab[nbs] = joinTwoNuplet(r, s, att2);
+//				nbs++;
+////				int r_current_count = r_count ++;
+////				int s_current_count = s_count ++;
+////				
+////				NupletInt s_suivant = new NupletInt(t2[s_current_count].size());
+////				
+////				for (int i = 0; i < s.size(); i++)
+////					s_suivant.putAtt(i, t2[s_current_count].getAtt(i));
+////				
+////				while((byte) r.getAtt(att1) == (byte) s_suivant.getAtt(att2)){
+////					tab[nbs] = joinTwoNuplet(r, s_suivant, att2);
+////					s_current_count ++;
+////					for (int i = 0; i < s_suivant.size(); i++)
+////						s_suivant.putAtt(i, t2[s_current_count].getAtt(i));
+////				}
+////				
+////				NupletInt r_suivant = new NupletInt(t1[r_current_count].size());
+////				
+////				while((byte) r_suivant.getAtt(att1) == (byte) s.getAtt(att2)){
+////					tab[nbs] = joinTwoNuplet(r_suivant, s, att2);
+////					r_current_count ++;
+////					for (int i = 0; i < r_suivant.size(); i++)
+////						r_suivant.putAtt(i, t1[r_current_count].getAtt(i));
+////				}
+////				
+//				r_count ++;
+//				s_count ++;
+//				
+//				for (int i = 0; i < r.size(); i++)
+//		            r.putAtt(i, t1[r_count].getAtt(i));
+//				
+//				for (int i = 0; i < s.size(); i++)
+//		            s.putAtt(i, t2[s_count].getAtt(i));
+//			}
+			
+//		}
+//		for(Nuplet toto: tab) {
+//			System.out.println(toto.toString());
+//		}
+		return null;
+	}
+
+}

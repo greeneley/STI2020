@@ -1,0 +1,69 @@
+package impl;
+
+import operateurs.Jointure;
+import stockage.Nuplet;
+
+public class JointureS implements Jointure {
+	public Nuplet joinTwoNuplet(Nuplet n1, Nuplet n2, int mergeAttribute) {
+        NupletInt merged = new NupletInt(n1.size() + n2.size() - 1);
+
+        for (int i = 0; i < n1.size(); i++)
+            merged.putAtt(i, n1.getAtt(i));
+        for (int i = 0; i < mergeAttribute; i++)
+            merged.putAtt(n1.size() + i, n2.getAtt(i));
+        for (int i = mergeAttribute + 1; i < n2.size(); i++)
+            merged.putAtt(n1.size() + i - 1, n2.getAtt(i));
+
+        return merged;
+    }
+	public Boolean isCheckEOF( Nuplet[] t, int count) {
+		if (count == t.length -1) {
+			return true;
+		} else {
+			return false;	
+		}
+	}
+	public NupletInt hasNext(NupletInt n, Nuplet[] t, int count) {
+		for (int i = 0; i < n.size(); i++)
+            n.putAtt(i, t[count].getAtt(i));
+		return n;
+	}
+	
+	@Override
+	public Nuplet[] jointure(Nuplet[] t1, Nuplet[] t2, int att1, int att2) {
+		// TODO Auto-generated method stub
+		
+		Nuplet[] tab = new NupletInt[t1.length];
+		int nbs = 0 ;
+		
+//		System.out.println(t1[0]);
+		int r_count = 0;
+		NupletInt r = new NupletInt(t1[0].size());
+		r = hasNext(r, t1, r_count);
+		int s_count = 0;
+		NupletInt s = new NupletInt(t2[0].size());
+		s = hasNext(s, t2, s_count);
+		
+		
+		while( !isCheckEOF(t1, r_count) && !isCheckEOF(t2,s_count)){
+			if((byte) r.getAtt(att1) > (byte) s.getAtt(att2)) {
+				s_count ++;
+				s = hasNext(s, t2, s_count);
+			} else if ( (byte) r.getAtt(att1) < (byte) s.getAtt(att2) ) {
+				r_count ++;
+				r = hasNext(r, t1, r_count);
+			} else {
+				
+				tab[nbs] = new NupletInt(r.size() + s.size() -1);
+				tab[nbs] = joinTwoNuplet(r, s, att2);
+				nbs++;
+				r_count ++;
+				r = hasNext(r, t1, r_count);
+				s_count ++;
+				s = hasNext(s, t2, s_count);
+			}
+		}
+		return tab;
+	}
+
+}

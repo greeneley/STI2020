@@ -1,0 +1,39 @@
+package impl;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Vector;
+
+import operateurs.Jointure;
+import stockage.Nuplet;
+
+public class JointureH implements Jointure {
+
+	@Override
+	public Nuplet[] jointure(Nuplet[] t1, Nuplet[] t2, int att1, int att2) {
+		// TODO Auto-generated method stub
+//		Nuplet[] tab = new NupletInt[t1.length];
+//		Vector<Nuplet> v = new Vector<Nuplet>();
+//		HashMap<Object, Nuplet> hash = new HashMap<Object, Nuplet>();
+//		for (Nuplet n2 : t2) {
+//		    hash.put(n2.getAtt(att2), n2);
+//		}
+//		for (Nuplet n1: t1) {
+//			Nuplet hash_n2 = (Nuplet) hash.get(n1.getAtt(att1));
+//			if( hash_n2 != null) v.addElement(hash_n2);
+//		}
+		Nuplet[] tab = new NupletInt[t1.length];
+		Vector<Nuplet> v = new Vector<Nuplet>();
+		HashMap<Object, Nuplet> hash = new HashMap<Object, Nuplet>();
+		for (Nuplet n1 : t1) {
+		    hash.put(n1.getAtt(att2), n1);
+		}
+		for (Nuplet n2: t2) {
+			Nuplet hash_test = hash.get(n1.getAtt(att1));
+			System.out.println(hash_test);
+		}
+
+		return null;
+	}
+
+}

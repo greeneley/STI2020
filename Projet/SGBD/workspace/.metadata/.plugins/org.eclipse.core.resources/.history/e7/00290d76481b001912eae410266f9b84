@@ -1,0 +1,14 @@
+package impl;
+
+import operateurs.Projection;
+import stockage.Nuplet;
+
+public class ProjectionInt implements Projection {
+
+	@Override
+	public Nuplet[] project(Nuplet[] t, int[] atts) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

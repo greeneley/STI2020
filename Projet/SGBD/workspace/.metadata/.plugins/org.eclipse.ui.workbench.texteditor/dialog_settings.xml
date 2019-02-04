@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="false" key="isRegEx"/>
+		<item value="GetByAtt" key="selection"/>
+		<item value="false" key="casesensitive"/>
+		<item value="false" key="incremental"/>
+		<item value="true" key="wrap"/>
+		<item value="false" key="wholeword"/>
+		<list key="findhistory">
+			<item value="getByAtt"/>
+			<item value="get"/>
+			<item value="records"/>
+			<item value="Plan_5"/>
+			<item value="Plan_4"/>
+			<item value="PlanB"/>
+			<item value="Plan_2"/>
+			<item value="Plan_1"/>
+			<item value="PlanA"/>
+			<item value="testJointureH_PlanA"/>
+			<item value="fullscan"/>
+		</list>
+		<list key="replacehistory">
+			<item value="Plan_6"/>
+			<item value="Plan_5"/>
+			<item value="Plan_4"/>
+			<item value="Plan_3"/>
+			<item value="Plan_2"/>
+			<item value="Plan_1"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="344" key="DIALOG_WIDTH"/>
+		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+		<item value="440" key="DIALOG_HEIGHT"/>
+		<item value="791" key="DIALOG_X_ORIGIN"/>
+		<item value="234" key="DIALOG_Y_ORIGIN"/>
+	</section>
+</section>

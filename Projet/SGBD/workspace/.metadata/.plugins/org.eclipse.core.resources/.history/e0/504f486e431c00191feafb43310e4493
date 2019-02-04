@@ -1,0 +1,25 @@
+package impl;
+
+import java.util.Vector;
+
+import operateurs.Projection;
+import stockage.Nuplet;
+
+public class ProjectionInt implements Projection {
+
+	@Override
+	public Nuplet[] project(Nuplet[] t, int[] atts) {
+		// TODO Auto-generated method stub
+		Vector<Nuplet> value = new Vector<Nuplet>();
+		for(Nuplet n: t) {
+			for(int i = 0; i < atts.length; i++) {
+				value.addElement((Nuplet) n.getAtt(atts[i]));
+			}
+		}
+		Nuplet[] ret = new Nuplet[value.size()];
+		for(int i=0;i<value.size();i++)
+			ret[i] = value.elementAt(i);
+		return null;
+	}
+
+}

@@ -1,0 +1,32 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00007fb2dc7343a2, pid=15939, tid=6074
+#
+# JRE version: OpenJDK Runtime Environment (10.0.2+13) (build 10.0.2+13-Ubuntu-1ubuntu0.18.04.4)
+# Java VM: OpenJDK 64-Bit Server VM (10.0.2+13-Ubuntu-1ubuntu0.18.04.4, mixed mode, tiered, compressed oops, g1 gc, linux-amd64)
+# Problematic frame:
+# C  [libjimage.so+0x23a2]
+#
+# Core dump will be written. Default location: Core dumps may be processed with "/usr/share/apport/apport %p %s %c %d %P" (or dumping to /home/haipro/Documents/4A_STI/SGBD/workspace/TP_Projet/core.15939)
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.java.com/bugreport/crash.jsp
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -agentlib:jdwp=transport=dt_socket,suspend=y,address=localhost:33205 -javaagent:/home/haipro/.eclipse/360744347_linux_gtk_x86_64/configuration/org.eclipse.osgi/232/0/.cp/lib/javaagent-shaded.jar -Dfile.encoding=UTF-8 test.Main
+
+Host: Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz, 4 cores, 11G, Ubuntu 18.04.1 LTS
+Time: Fri Jan 25 02:20:22 2019 +06 elapsed time: 12543 seconds (0d 3h 29m 3s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007fb27c001000):  JavaThread "SIGTERM handler" daemon [_thread_in_vm, id=6074, stack(0x00007fb2a445a000,0x00007fb2a455b000)]
+
+Stack: [0x00007fb2a445a000,0x00007fb2a455b000],  sp=0x00007fb2a4558070,  free space=1016k
+Native frames: (J=compiled Java code, A=aot compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [libjimage.so+0x23a2]
+C  [libjimage.so+0x2f8b]
+C  [libjimage.so+0x350e]

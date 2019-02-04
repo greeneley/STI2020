@@ -1,0 +1,11 @@
+package phuongtien;
+
+public class Motobike extends xe implements IRun, IFly{
+	IRun bird = new maybay();
+	public void run(){
+		bird.run();
+	}
+	public Motobike(int banhxe, int Speed, String tenxe){
+		super(banhxe,Speed,tenxe);
+	}
+}

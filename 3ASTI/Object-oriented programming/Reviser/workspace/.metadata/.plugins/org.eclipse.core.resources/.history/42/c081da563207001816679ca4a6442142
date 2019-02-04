@@ -1,0 +1,7 @@
+package Exception;
+
+import safes.Safe;
+
+public class NotExertisedException {
+	System.out.println("PIERRE non expertise");
+}

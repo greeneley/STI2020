@@ -1,0 +1,16 @@
+package demo;
+public class AnimalDemo {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Drink"+ Cat.SEVENUP);
+		CanEat canEat1 = new Cat("Tom");
+		CanEat canEat2 = new Mouse();
+		canEat1.eat();
+		canEat2.eat();
+	}
+
+}

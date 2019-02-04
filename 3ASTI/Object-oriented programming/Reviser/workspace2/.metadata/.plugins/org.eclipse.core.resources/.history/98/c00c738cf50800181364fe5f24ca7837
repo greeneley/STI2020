@@ -1,0 +1,13 @@
+package phuongtien;
+
+public class xemay extends xe{
+	public xemay(int banhxe,int speed,String tenxe){
+		super(banhxe,speed,tenxe);
+	}
+	public void DongCoXang(){
+		System.out.println("Xe chay bang dong co xang");
+	}
+	public void run(String cachchay1,String cachchay2){
+		System.out.println("Xe nay co the: "+cachchay1+cachchay2);
+	}
+}

@@ -1,0 +1,25 @@
+package phuongtien;
+
+public class xemay extends xe{
+	public int banhxe;
+	public int speed;
+	public int getBanhxe() {
+		return banhxe;
+	}
+	public void setBanhxe(int banhxe) {
+		this.banhxe = banhxe;
+	}
+	public int getSpeed() {
+		return speed;
+	}
+	public void setSpeed(int speed) {
+		this.speed = speed;
+	}
+	
+	public int SoBanhXe(int banhxe){
+		return this.banhxe=banhxe;
+	}
+	public int speed(int speed){
+		return this.speed=speed;
+	}
+}

@@ -1,0 +1,12 @@
+package phuongtien;
+
+public class Planes extends Motobike{
+	IFly bird = new Bird();
+	public void fly(){
+		bird.fly();
+	}
+	public Planes(int banhxe,int speed, String tenxe)
+	{
+		super(banhxe,speed,tenxe);
+	}
+}

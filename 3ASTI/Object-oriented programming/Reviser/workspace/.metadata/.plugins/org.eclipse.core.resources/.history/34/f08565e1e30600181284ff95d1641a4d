@@ -1,0 +1,9 @@
+package Test;
+
+import java.util.Map;
+
+public class Catalogue {
+	private Map<String,String> desciption;
+	private Map<String,Double> prix;
+	
+}

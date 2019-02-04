@@ -1,0 +1,5 @@
+
+public class animal {
+	cat meo=new cat();
+	meo
+}

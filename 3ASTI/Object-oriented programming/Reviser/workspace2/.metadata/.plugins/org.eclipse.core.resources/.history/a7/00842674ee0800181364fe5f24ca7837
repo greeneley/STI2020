@@ -1,0 +1,12 @@
+package phuongtien;
+
+public class xedap extends xe {
+	public int banhxe;
+	public int speed;
+	public String tenxe;
+
+	public xedap( int banhxe,  int speed,String tenxe){
+		super(banhxe,speed,tenxe);
+	}
+	
+}

@@ -1,0 +1,13 @@
+
+public abstract class AbstractJob {
+	public AbstractJob(){
+		
+	}
+	public abstract String getJobname();
+	public abstract void doJob();
+	public void doJob() {
+		// TODO Auto-generated method stub
+		
+	}
+}
+

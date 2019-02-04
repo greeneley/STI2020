@@ -1,0 +1,18 @@
+package phuongtien;
+
+public class xeoto extends xe {
+	public int banhxe;
+	public int speed;
+	public String tenxe;
+	public xeoto( int banhxe, int speed,String tenxe){
+		super(banhxe,speed);
+	}
+//	public void SoBanhXe(){
+//		System.out.println("So banh xe cua oto la: "+banhxe);
+//	}
+//	public void speed(){
+//		System.out.println("Toc do cua oto la: "+speed);
+//	}
+	
+	
+}

@@ -1,0 +1,33 @@
+what,kind,bundleId,bundleVersion,description,time
+java.vm.info,sysinfo,,,"mixed mode",1517906232015
+java.vm.name,sysinfo,,,"Java HotSpot(TM) 64-Bit Server VM",1517906232015
+java.vm.specification.name,sysinfo,,,"Java Virtual Machine Specification",1517906232015
+java.vm.specification.vendor,sysinfo,,,"Oracle Corporation",1517906232015
+java.vm.specification.version,sysinfo,,,"1.8",1517906232015
+java.vm.vendor,sysinfo,,,"Oracle Corporation",1517906232015
+java.vm.version,sysinfo,,,"25.151-b12",1517906232015
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1517906404702
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1517906419592
+activated,view,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.PackageExplorer",1517906421040
+opened,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1517906436155
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1517906436197
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1517906436388
+started,bundle,org.eclipse.jdt.apt.core,3.3.500.v20110420-1015,"org.eclipse.jdt.apt.core",1517906437063
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1517907421292
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1517907423894
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1517907424034
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1517907545978
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1517907549834
+closed,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1517907555166
+started,bundle,org.eclipse.compare,3.5.202.R37x_v20111109-0800,"org.eclipse.compare",1517907561607
+stopped,bundle,org.eclipse.mylyn.ide.ant,3.6.0.v20110608-1400,"org.eclipse.mylyn.ide.ant",1517907567641
+stopped,bundle,org.eclipse.emf.eef.codegen.ecore,1.0.2.v20120216-1513,"org.eclipse.emf.eef.codegen.ecore",1517907567729
+stopped,bundle,org.eclipse.emf.eef.codegen,1.0.2.v20120216-1513,"org.eclipse.emf.eef.codegen",1517907567772
+stopped,bundle,org.eclipse.mylyn.pde.ui,3.6.0.v20110608-1400,"org.eclipse.mylyn.pde.ui",1517907567800
+stopped,bundle,org.eclipse.pde.api.tools.ui,1.0.301.v20110803_r371,"org.eclipse.pde.api.tools.ui",1517907567976
+stopped,bundle,org.eclipse.pde.ds.ui,1.0.100.v20111213-1754,"org.eclipse.pde.ds.ui",1517907568047
+stopped,bundle,com.soyatec.eemf,3.7.1.20110624,"com.soyatec.eemf",1517907568144
+stopped,bundle,com.soyatec.additional,3.7.1.20110624,"com.soyatec.additional",1517907568219
+stopped,bundle,com.soyatec.core,3.7.1.20110624,"com.soyatec.core",1517907568246
+stopped,bundle,org.eclipse.pde.runtime,3.4.201.v20110928-1516,"org.eclipse.pde.runtime",1517907568297
+stopped,bundle,org.eclipse.pde.ua.ui,1.0.100.v20110516,"org.eclipse.pde.ua.ui",1517907568405

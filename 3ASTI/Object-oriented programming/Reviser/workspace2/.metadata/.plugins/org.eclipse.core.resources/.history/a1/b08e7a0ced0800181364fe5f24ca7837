@@ -1,0 +1,18 @@
+package phuongtien;
+
+public abstract class xe {
+	public int banhxe;
+	public int speed;
+//	public String tenxe;
+	public xe(int banhxe, int speed){
+		this.banhxe=banhxe;
+		this.speed=speed;
+	}
+	
+	public void banhxe(int banhxe){
+		System.out.println("so banh xe la "+banhxe);
+	}
+	public void tenxe(String tenxe){
+		System.out.println("ten xe: "+tenxe);
+	}
+}

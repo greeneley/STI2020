@@ -1,0 +1,12 @@
+package exception;
+
+public class NotExertisedException extends Exception {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public NotExertisedException(){
+		System.out.print("pierre non expertise");
+	}
+}

@@ -1,0 +1,16 @@
+﻿Build started 1/16/2018 12:46:47 AM.
+     1>Project "D:\Thanhhai\hoctap\3A STI\Assembleur\TD5\td5\td5\td5.vcxproj" on node 2 (Build target(s)).
+     1>_MASM:
+         Assembling ..\..\..\TD4\tribulle.asm...
+         cmd.exe /C "C:\Users\anhch\AppData\Local\Temp\tmp4961e60bea8544c295922fd11f4e7e63.cmd"
+         ml.exe /c /nologo /Zi /Fo"Debug\tribulle.obj" /W3 /errorReport:prompt  /Ta..\..\..\TD4\tribulle.asm
+     1>..\..\..\TD4\tribulle.asm(19): error A2022: instruction operands must be the same size
+     1>..\..\..\TD4\tribulle.asm(20): error A2022: instruction operands must be the same size
+     1>..\..\..\TD4\tribulle.asm(23): error A2022: instruction operands must be the same size
+     1>..\..\..\TD4\tribulle.asm(24): error A2022: instruction operands must be the same size
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V110\BuildCustomizations\masm.targets(49,5): error MSB3721: The command "ml.exe /c /nologo /Zi /Fo"Debug\tribulle.obj" /W3 /errorReport:prompt  /Ta..\..\..\TD4\tribulle.asm" exited with code 1.
+     1>Done Building Project "D:\Thanhhai\hoctap\3A STI\Assembleur\TD5\td5\td5\td5.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.20

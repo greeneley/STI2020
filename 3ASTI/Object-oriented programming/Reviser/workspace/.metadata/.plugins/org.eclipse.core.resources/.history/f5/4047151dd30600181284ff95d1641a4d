@@ -1,0 +1,7 @@
+pa
+public class animal {
+	public void MeoMeo(){
+		return "Meo Meo";
+	}
+	
+}

@@ -1,0 +1,31 @@
+package demo;
+import demo.CanDrink;
+import demo.CanEat;
+public class Cat extends Animal implements CanEat, CanDrink {
+	private String name;
+	public Cat(String name){
+		this.name=name;
+	}
+	public String getName(){
+		return this.name;
+	}
+	@Override
+	public void back(){
+		System.out.println(name+"cat back...");
+	}
+	@Override
+	public int getVelocity(){
+		return 110;
+	}
+	@Override
+	public void drink() {
+		// TODO Auto-generated method stub
+		System.err.println(name+"cat eat...");
+	}
+	@Override
+	public void eat() {
+		// TODO Auto-generated method stub
+		System.out.println(name+"cat drink...");
+	}
+
+}

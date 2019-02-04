@@ -1,0 +1,8 @@
+package tutorat;
+
+public class MessageCryptéAESs extends MessageCrypté{
+	
+	public void crypter(){}
+	public void decrypter(){}
+
+}

@@ -1,0 +1,16 @@
+package phuongtien;
+
+public class xeoto extends xe {
+	public int banhxe;
+	public int speed;
+
+	public int BanhXe(int banhxe){
+		return this.banhxe=banhxe;
+	}
+	public int speed(int speed){
+		return this.speed=speed;
+	}
+	
+	
+	
+}

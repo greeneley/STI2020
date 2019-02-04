@@ -1,0 +1,8 @@
+package phuongtien;
+
+public class Motobike extends xe{
+	IRun bird = new Bird();
+	public void run(){
+		bird.run();
+	}
+}

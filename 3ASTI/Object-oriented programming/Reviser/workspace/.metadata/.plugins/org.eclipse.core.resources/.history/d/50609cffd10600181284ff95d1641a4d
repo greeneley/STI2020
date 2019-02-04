@@ -1,0 +1,13 @@
+
+public class BuildHouse extends ManualJob{
+	public BuildHouse(){
+		
+	}
+	public void doJob(){
+		System.out.println("Build a House");
+	}
+	public String getJobName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}

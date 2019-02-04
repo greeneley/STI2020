@@ -1,0 +1,16 @@
+package phuongtien;
+
+public class xedap extends xe {
+	public int banhxe;
+	public int speed;
+	public xedap(final int banhxe, final int speed){
+		this.banhxe=banhxe;
+		this.speed=speed;
+	}
+	public void SoBanhXe(){
+		System.out.println("So banh xe cua xe dap la: "+banhxe);
+	}
+	public void speed(){
+		System.out.println("Toc do cua xe dap la: "+speed);
+	}
+}

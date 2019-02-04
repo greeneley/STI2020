@@ -1,0 +1,15 @@
+package Solution;
+
+import static org.junit.Assert.*;
+import Solution.equation;;
+
+import org.junit.Test;
+
+public class solu {
+
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+
+}

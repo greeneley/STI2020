@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" size="1601,1031" id="phuongtien" metadata="uml2-1.0" initialized="true" tag="1000" key="32303037303533312D31303030206361722F616E686368">
+  <children xsi:type="editmodel:ClassEditModel" name="Test" location="756,50" size="90,77" id="phuongtien/Test">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="67,20">
+      <children xsi:type="editmodel:MethodEditModel" name="main" id="phuongtien/Test#main([Ljava.lang.String;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="xedap" location="245,317" size="99,77" id="phuongtien/xedap">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="76,20">
+      <children xsi:type="editmodel:MethodEditModel" name="xedap" id="phuongtien/xedap#xedap(IILjava.lang.String;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="phuongtien/xe&lt;-phuongtien/xedap" source="//@children.1" target="//@children.4/@sourceConnections.1" targetEnd="//@children.1/@sourceConnections.0/@children.1" sourceEnd="//@children.1/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="49,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.4/@sourceConnections.0" name="IRun" location="571,50" size="118,115" id="phuongtien/IRun">
+    <children xsi:type="editmodel:CompartmentEditModel" size="95,20">
+      <children xsi:type="editmodel:AttributeEditModel" name="run" id="phuongtien/IRun#run"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="54,20">
+      <children xsi:type="editmodel:MethodEditModel" name="run" id="phuongtien/IRun#run()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="xeoto" location="374,317" size="150,117" id="phuongtien/xeoto">
+    <children xsi:type="editmodel:CompartmentEditModel" size="127,20">
+      <children xsi:type="editmodel:AttributeEditModel" name="dongCo" id="phuongtien/xeoto#dongCo"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="121,40">
+      <children xsi:type="editmodel:MethodEditModel" name="DongCoDau" id="phuongtien/xeoto#DongCoDau(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="xeoto" id="phuongtien/xeoto#xeoto(IILjava.lang.String;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="phuongtien/xe&lt;-phuongtien/xeoto" source="//@children.3" target="//@children.4/@sourceConnections.1" targetEnd="//@children.3/@sourceConnections.0/@children.1" sourceEnd="//@children.3/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="75,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="xemay" location="554,317" size="152,117" id="phuongtien/xemay">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="129,60">
+      <children xsi:type="editmodel:MethodEditModel" name="DongCoXang" id="phuongtien/xemay#DongCoXang()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="run" id="phuongtien/xemay#run()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="xemay" id="phuongtien/xemay#xemay(IILjava.lang.String;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="phuongtien/IRun&lt;-phuongtien/xemay" source="//@children.4" target="//@children.2" targetEnd="//@children.4/@sourceConnections.0/@children.1" sourceEnd="//@children.4/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="76,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="59,115"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" targetConnections="//@children.1/@sourceConnections.0 //@children.3/@sourceConnections.0" autoLocated="true" id="phuongtien/xe&lt;-phuongtien/xemay" source="//@children.4" target="//@children.7" targetEnd="//@children.4/@sourceConnections.1/@children.1" sourceEnd="//@children.4/@sourceConnections.1/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="76,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="64,217" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="maybay" location="50,317" size="165,97" id="phuongtien/maybay" runTimeClassModel="fly(),DongCoTenLua()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="142,40">
+      <children xsi:type="editmodel:MethodEditModel" name="DongCoTenLua" id="phuongtien/maybay#DongCoTenLua()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="fly" id="phuongtien/maybay#fly()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="phuongtien/IFly&lt;-phuongtien/maybay" source="//@children.5" target="//@children.6" targetEnd="//@children.5/@sourceConnections.0/@children.1" sourceEnd="//@children.5/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="82,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="58,115"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.5/@sourceConnections.0" name="IFly" location="74,50" size="117,115" id="phuongtien/IFly">
+    <children xsi:type="editmodel:CompartmentEditModel" size="94,20">
+      <children xsi:type="editmodel:AttributeEditModel" name="fLY" id="phuongtien/IFly#fLY"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="47,20">
+      <children xsi:type="editmodel:MethodEditModel" name="fly" id="phuongtien/IFly#fly()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.4/@sourceConnections.1" name="xe" location="312,50" size="128,217" id="phuongtien/xe">
+    <children xsi:type="editmodel:CompartmentEditModel" size="105,60">
+      <children xsi:type="editmodel:AttributeEditModel" name="banhxe" id="phuongtien/xe#banhxe"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="speed" id="phuongtien/xe#speed"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="tenxe" id="phuongtien/xe#tenxe"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="87,100">
+      <children xsi:type="editmodel:MethodEditModel" name="banhxe" id="phuongtien/xe#banhxe()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="speed" id="phuongtien/xe#speed()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="tenxe" id="phuongtien/xe#tenxe()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="thongtin" id="phuongtien/xe#thongtin()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="xe" id="phuongtien/xe#xe(IILjava.lang.String;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" properties="wireOptions=3;Product=eUML2" autoName="false"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="15,15" gridOrigin="0,0" rulerUnit="pixel" gridVisibility="false">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" showPopupBars="true" showConnectionHandles="true" attributeSorter="Natural" methodSorter="Natural" showClassStereotype="true" showPackageStereotype="true" showDependencyStereotype="true" showInterfaceStereotype="true" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+</editmodel:ClassDiagramEditModel>

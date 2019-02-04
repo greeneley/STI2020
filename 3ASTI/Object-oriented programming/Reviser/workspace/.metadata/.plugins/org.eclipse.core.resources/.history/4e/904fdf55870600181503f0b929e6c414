@@ -1,0 +1,19 @@
+package Solution;
+
+public class equation {
+	public float  a;
+	public float  b;
+	boolean solved;
+	public float solution;
+	float getA(float a){
+		return this.a;
+	}
+	float getB(float b){
+		return this.b;
+	}
+	public equation(float unA,float unB){
+		System.out.println("In gia tri ra");
+		this.a=unA;
+		this.b=unB;
+	}
+}

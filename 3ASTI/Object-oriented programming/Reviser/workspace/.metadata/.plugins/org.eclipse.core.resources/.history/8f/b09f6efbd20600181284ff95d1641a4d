@@ -1,0 +1,11 @@
+
+public abstract class ManualJob extends AbstractJob {
+	public ManualJob(){
+		
+	}
+	
+	public String getJobName(){
+		return "Manual Job";
+	}
+	
+}

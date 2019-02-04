@@ -1,0 +1,15 @@
+package demo;
+
+public class Cat implements CanEat, CanDrink {
+
+	public void drink() {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void eat() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,13 @@
+﻿Build started 1/4/2018 9:18:46 AM.
+     1>Project "D:\Thanhhai\hoctap\3A\Assembleur\TD4\td4\td4\td4.vcxproj" on node 2 (Build target(s)).
+     1>_MASM:
+         Assembling exo1.asm...
+         cmd.exe /C "C:\Users\anhch\AppData\Local\Temp\tmp7599c1d512104c6088c523783bbd511b.cmd"
+         ml.exe /c /nologo /Zi /Fo"Debug\exo1.obj" /W3 /errorReport:prompt  /Taexo1.asm
+     1>exo1.asm(55): fatal error A1008: unmatched macro nesting
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V110\BuildCustomizations\masm.targets(49,5): error MSB3721: The command "ml.exe /c /nologo /Zi /Fo"Debug\exo1.obj" /W3 /errorReport:prompt  /Taexo1.asm" exited with code 1.
+     1>Done Building Project "D:\Thanhhai\hoctap\3A\Assembleur\TD4\td4\td4\td4.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.20

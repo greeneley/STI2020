@@ -1,0 +1,5 @@
+package phuongtien;
+
+public interface IRun {
+	public void Run();
+}

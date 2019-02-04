@@ -1,0 +1,12 @@
+package phuongtien;
+
+public class xemay extends xe{
+	String DongCo;
+	public xemay(int banhxe,int speed,String tenxe){
+		super(banhxe,speed,tenxe);
+	}
+	public String DongCoXang(String DongCo){
+		this.DongCo=Dongco;
+	}
+
+}

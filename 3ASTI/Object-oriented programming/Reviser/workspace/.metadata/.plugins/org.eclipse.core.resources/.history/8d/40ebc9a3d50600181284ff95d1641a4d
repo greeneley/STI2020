@@ -1,0 +1,10 @@
+package Dongvat;
+
+public class Cat  {
+//	public Cat(){
+//		
+//	}
+	public void TiengKeu(){
+		System.out.println("MeoMeo");
+	}
+}

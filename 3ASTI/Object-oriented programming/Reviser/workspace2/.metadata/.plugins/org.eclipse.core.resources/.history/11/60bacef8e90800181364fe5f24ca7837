@@ -1,0 +1,16 @@
+package phuongtien;
+
+public class xeoto extends xe {
+	public int banhxe;
+	public int speed;
+	@Override
+	public int BanhXe(int banhxe){
+		return this.banhxe=banhxe;
+	}
+	@Override
+	public int speed(int speed){
+		return this.speed=speed;
+	}
+	
+	
+}

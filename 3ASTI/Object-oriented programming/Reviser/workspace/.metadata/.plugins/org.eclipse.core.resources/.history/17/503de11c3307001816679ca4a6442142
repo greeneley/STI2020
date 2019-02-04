@@ -1,0 +1,11 @@
+package exception;
+
+public class NotExertisedException extends Exception {
+	/**
+	 * 
+	 */
+
+	public NotExertisedException(){
+		System.out.print("pierre non expertise");
+	}
+}

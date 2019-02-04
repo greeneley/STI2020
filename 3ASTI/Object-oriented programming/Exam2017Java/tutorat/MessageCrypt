@@ -1,0 +1,8 @@
+package tutorat;
+
+public class MessageCryptéRot13s extends MessageCrypté{
+
+	public void crypter(){}
+	public void decrypter(){}
+	
+}

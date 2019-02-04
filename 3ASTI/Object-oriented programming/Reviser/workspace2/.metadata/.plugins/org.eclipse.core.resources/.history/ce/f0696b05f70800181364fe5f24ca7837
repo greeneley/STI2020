@@ -1,0 +1,10 @@
+package demo;
+
+public interface CanMove {
+	public abstract void run();
+
+	void back();
+
+	public int getVelocity();
+
+}

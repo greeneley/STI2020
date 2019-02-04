@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" size="1361,1367" id="geometrie" metadata="uml2-1.0" initialized="true" scrolledY="599" tag="1000" key="32303037303533312D313030302048657269746167652F616E686368">
+  <children xsi:type="editmodel:ClassEditModel" name="TestTP" location="50,1190" size="109,77" id="geometrie/TestTP" runTimeClassModel="main([Ljava.lang.String;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="67,20">
+      <children xsi:type="editmodel:MethodEditModel" name="main" id="geometrie/TestTP#main([Ljava.lang.String;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.2/@sourceConnections.0 //@children.2/@sourceConnections.1" name="Segment" location="216,146" size="125,117" id="geometrie/Segment" runTimeClassModel="Segment(Lgeometrie.Point;Lgeometrie.Point;),longueur(),toString()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="96,60">
+      <children xsi:type="editmodel:MethodEditModel" name="Segment" id="geometrie/Segment#Segment(Lgeometrie.Point;Lgeometrie.Point;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="longueur" id="geometrie/Segment#longueur()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="toString" id="geometrie/Segment#toString()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="geometrie/Segment@lesSegments+geometrie/Quadrilatere@quadrilatere" source="//@children.1" target="//@children.3" targetEnd="//@children.1/@sourceConnections.0/@children.2" label="//@children.1/@sourceConnections.0/@children.0" sourceEnd="//@children.1/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,18" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="lesSegments" location="125,107" id="geometrie/Segment@lesSegments+geometrie/Quadrilatere@quadrilatere|geometrie/Segment#lesSegments" attachSource="true" multiplicityLabel="//@children.1/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.1/@sourceConnections.0/@children.1/@children.0" navigable="true" orderingKind="1">
+        <children xsi:type="editmodel:LabelEditModel" name=" - lesSegments" location="348,228" size="104,18" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="*" location="348,260" size="6,18" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="quadrilatere" location="10,0" id="geometrie/Segment@lesSegments+geometrie/Quadrilatere@quadrilatere|geometrie/Quadrilatere#quadrilatere"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="Point" location="50,50" size="124,217" id="geometrie/Point" runTimeClassModel="Point(DDLjava.lang.String;),toString(),Point(),x,y,label,distance(Lgeometrie.Point;),Point(DD)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="101,60">
+      <children xsi:type="editmodel:AttributeEditModel" name="label" id="geometrie/Point#label"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="x" id="geometrie/Point#x"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="y" id="geometrie/Point#y"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="92,100">
+      <children xsi:type="editmodel:MethodEditModel" name="Point" id="geometrie/Point#Point()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="Point" id="geometrie/Point#Point(DD)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="Point" id="geometrie/Point#Point(DDLjava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="distance" id="geometrie/Point#distance(Lgeometrie.Point;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="toString" id="geometrie/Point#toString()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="geometrie/Point@debut+geometrie/Segment@segment" source="//@children.2" target="//@children.1" targetEnd="//@children.2/@sourceConnections.0/@children.2" label="//@children.2/@sourceConnections.0/@children.0" sourceEnd="//@children.2/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,18" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="debut" location="124,154" id="geometrie/Point@debut+geometrie/Segment@segment|geometrie/Point#debut" attachSource="true" multiplicityLabel="//@children.2/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.2/@sourceConnections.0/@children.1/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - debut" location="181,179" size="52,18" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="181,211" size="9,18" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="segment" location="0,58" id="geometrie/Point@debut+geometrie/Segment@segment|geometrie/Segment#segment"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="geometrie/Point@fin+geometrie/Segment@segment" source="//@children.2" target="//@children.1" targetEnd="//@children.2/@sourceConnections.1/@children.2" label="//@children.2/@sourceConnections.1/@children.0" sourceEnd="//@children.2/@sourceConnections.1/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,18" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="fin" location="124,104" id="geometrie/Point@fin+geometrie/Segment@segment|geometrie/Point#fin" attachSource="true" multiplicityLabel="//@children.2/@sourceConnections.1/@children.1/@children.1" roleLabel="//@children.2/@sourceConnections.1/@children.1/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - fin" location="181,129" size="29,18" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="181,161" size="9,18" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="segment" location="0,38" id="geometrie/Point@fin+geometrie/Segment@segment|geometrie/Segment#segment"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.1/@sourceConnections.0 //@children.9/@sourceConnections.0" name="Quadrilatere" location="381,636" size="253,157" id="geometrie/Quadrilatere" runTimeClassModel="toString(),perimetre,LesSegments,Quadrilatere(Ljava.lang.String;Ljava.lang.String;I),Quadrilatere(Lgeometrie.Point;Lgeometrie.Point;Lgeometrie.Point;Lgeometrie.Point;Ljava.lang.String;Ljava.lang.String;I)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="230,40">
+      <children xsi:type="editmodel:AttributeEditModel" name="LesSegments" id="geometrie/Quadrilatere#LesSegments"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="perimetre" id="geometrie/Quadrilatere#perimetre"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="119,60">
+      <children xsi:type="editmodel:MethodEditModel" name="Quadrilatere" id="geometrie/Quadrilatere#Quadrilatere(Ljava.lang.String;Ljava.lang.String;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="Quadrilatere" id="geometrie/Quadrilatere#Quadrilatere(Lgeometrie.Point;Lgeometrie.Point;Lgeometrie.Point;Lgeometrie.Point;Ljava.lang.String;Ljava.lang.String;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="toString" id="geometrie/Quadrilatere#toString()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="geometrie/Polygone&lt;-geometrie/Quadrilatere" source="//@children.3" target="//@children.6/@sourceConnections.0" targetEnd="//@children.3/@sourceConnections.0/@children.1" sourceEnd="//@children.3/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="126,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.6/@sourceConnections.0" name="Polygone" location="720,469" size="130,117" id="geometrie/Polygone" runTimeClassModel="Polygone(Ljava.lang.String;Ljava.lang.String;I),message(),toString()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="98,60">
+      <children xsi:type="editmodel:MethodEditModel" name="Polygone" id="geometrie/Polygone#Polygone(Ljava.lang.String;Ljava.lang.String;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="message" id="geometrie/Polygone#message()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="toString" id="geometrie/Polygone#toString()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="geometrie/FigureGeometrique&lt;-geometrie/Polygone" source="//@children.4" target="//@children.10/@sourceConnections.0" targetEnd="//@children.4/@sourceConnections.0/@children.1" sourceEnd="//@children.4/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="65,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="Ellipse" location="1139,636" size="104,77" id="geometrie/Ellipse" runTimeClassModel="Ellipse(Ljava.lang.String;Ljava.lang.String;I)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="80,20">
+      <children xsi:type="editmodel:MethodEditModel" name="Ellipse" id="geometrie/Ellipse#Ellipse(Ljava.lang.String;Ljava.lang.String;I)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="geometrie/Conique&lt;-geometrie/Ellipse" source="//@children.5" target="//@children.7/@sourceConnections.0" targetEnd="//@children.5/@sourceConnections.0/@children.1" sourceEnd="//@children.5/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="52,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="Pentagones" location="823,636" size="154,77" id="geometrie/Pentagones" runTimeClassModel="Pentagones(Ljava.lang.String;Ljava.lang.String;I)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="117,20">
+      <children xsi:type="editmodel:MethodEditModel" name="Pentagones" id="geometrie/Pentagones#Pentagones(Ljava.lang.String;Ljava.lang.String;I)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" targetConnections="//@children.8/@sourceConnections.0 //@children.3/@sourceConnections.0" autoLocated="true" id="geometrie/Polygone&lt;-geometrie/Pentagones" source="//@children.6" target="//@children.4" targetEnd="//@children.6/@sourceConnections.0/@children.1" sourceEnd="//@children.6/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="77,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="65,117" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="Cercle" location="1007,636" size="102,77" id="geometrie/Cercle" runTimeClassModel="Cercle(Ljava.lang.String;Ljava.lang.String;I)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="79,20">
+      <children xsi:type="editmodel:MethodEditModel" name="Cercle" id="geometrie/Cercle#Cercle(Ljava.lang.String;Ljava.lang.String;I)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" targetConnections="//@children.5/@sourceConnections.0" autoLocated="true" id="geometrie/Conique&lt;-geometrie/Cercle" source="//@children.7" target="//@children.10" targetEnd="//@children.7/@sourceConnections.0/@children.1" sourceEnd="//@children.7/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="51,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="60,117" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="Triangles" location="664,636" size="129,77" id="geometrie/Triangles" runTimeClassModel="Triangles(Ljava.lang.String;Ljava.lang.String;I)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="96,20">
+      <children xsi:type="editmodel:MethodEditModel" name="Triangles" id="geometrie/Triangles#Triangles(Ljava.lang.String;Ljava.lang.String;I)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="geometrie/Polygone&lt;-geometrie/Triangles" source="//@children.8" target="//@children.6/@sourceConnections.0" targetEnd="//@children.8/@sourceConnections.0/@children.1" sourceEnd="//@children.8/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="64,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="Rectangle" location="434,843" size="147,297" id="geometrie/Rectangle" runTimeClassModel="p1,p2,setP1(Lgeometrie.Point;),message(),getPerimetre(),Rectangle(Lgeometrie.Point;Lgeometrie.Point;Ljava.lang.String;Ljava.lang.String;I),getP2(),dessiner(),setP2(Lgeometrie.Point;),getP1(),Rectangle(Ljava.lang.String;Ljava.lang.String;I),dessiner(Lgeometrie.Point;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="81,40">
+      <children xsi:type="editmodel:AttributeEditModel" name="p1" id="geometrie/Rectangle#p1"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="p2" id="geometrie/Rectangle#p2"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="124,200">
+      <children xsi:type="editmodel:MethodEditModel" name="Rectangle" id="geometrie/Rectangle#Rectangle(Ljava.lang.String;Ljava.lang.String;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="Rectangle" id="geometrie/Rectangle#Rectangle(Lgeometrie.Point;Lgeometrie.Point;Ljava.lang.String;Ljava.lang.String;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="dessiner" id="geometrie/Rectangle#dessiner(Lgeometrie.Point;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="dessiner" id="geometrie/Rectangle#dessiner()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getP1" id="geometrie/Rectangle#getP1()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getP2" id="geometrie/Rectangle#getP2()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getPerimetre" id="geometrie/Rectangle#getPerimetre()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="message" id="geometrie/Rectangle#message()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setP1" id="geometrie/Rectangle#setP1(Lgeometrie.Point;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setP2" id="geometrie/Rectangle#setP2(Lgeometrie.Point;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="geometrie/Quadrilatere&lt;-geometrie/Rectangle" source="//@children.9" target="//@children.3" targetEnd="//@children.9/@sourceConnections.0/@children.1" sourceEnd="//@children.9/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="73,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="126,157"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.7/@sourceConnections.0" name="Conique" location="1064,469" size="121,117" id="geometrie/Conique" runTimeClassModel="Conique(Ljava.lang.String;Ljava.lang.String;I),message(),toString()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="98,60">
+      <children xsi:type="editmodel:MethodEditModel" name="Conique" id="geometrie/Conique#Conique(Ljava.lang.String;Ljava.lang.String;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="message" id="geometrie/Conique#message()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="toString" id="geometrie/Conique#toString()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" targetConnections="//@children.4/@sourceConnections.0" autoLocated="true" id="geometrie/FigureGeometrique&lt;-geometrie/Conique" source="//@children.10" target="//@children.11" targetEnd="//@children.10/@sourceConnections.0/@children.1" sourceEnd="//@children.10/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="60,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="112,177" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.10/@sourceConnections.0" name="FigureGeometrique" location="842,242" size="224,177" id="geometrie/FigureGeometrique" runTimeClassModel="code,zone,toString(),dessiner(),FigureGeometrique(Ljava.lang.String;Ljava.lang.String;I),dessiner(I)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="78,40">
+      <children xsi:type="editmodel:AttributeEditModel" name="code" id="geometrie/FigureGeometrique#code"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="zone" id="geometrie/FigureGeometrique#zone"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="169,80">
+      <children xsi:type="editmodel:MethodEditModel" name="FigureGeometrique" id="geometrie/FigureGeometrique#FigureGeometrique(Ljava.lang.String;Ljava.lang.String;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="dessiner" id="geometrie/FigureGeometrique#dessiner(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="dessiner" id="geometrie/FigureGeometrique#dessiner()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="toString" id="geometrie/FigureGeometrique#toString()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" properties="wireOptions=3;Product=eUML2" autoName="false"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="15,15" gridOrigin="0,0" rulerUnit="pixel" gridVisibility="false">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" showPopupBars="true" showConnectionHandles="true" attributeSorter="Natural" methodSorter="Natural" showClassStereotype="true" showPackageStereotype="true" showDependencyStereotype="true" showInterfaceStereotype="true" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+</editmodel:ClassDiagramEditModel>

@@ -1,0 +1,13 @@
+
+public class Javacoding extends AbstractJob {
+	public Javacoding(){
+		
+	}
+	public void doJob(){
+		System.out.println("Coding Java...");
+	}
+	public String getJobName(){
+		return "Coding Java";
+	}
+	
+}

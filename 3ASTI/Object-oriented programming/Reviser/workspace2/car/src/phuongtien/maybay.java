@@ -1,0 +1,10 @@
+package phuongtien;
+
+public class maybay implements IFly{
+	public void DongCoTenLua(){
+		System.out.println("May bay chay bang dong co ten lua");
+	}
+	public void fly(){
+		System.out.println("May bay co the cat canh, ha canh");
+	}
+}

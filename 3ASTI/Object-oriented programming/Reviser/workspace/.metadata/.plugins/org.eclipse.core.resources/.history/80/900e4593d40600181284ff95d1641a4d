@@ -1,0 +1,16 @@
+package Dongvat;
+
+public class Test {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		animal meo = new Cat();
+		animal cho = new Dog();
+		meo.TiengKeu();
+		cho.TiengKeu();
+	}
+
+}

@@ -1,0 +1,20 @@
+package phuongtien;
+
+public class Test {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		xe xemay= new xemay(2, 150,"xe may");
+		xemay.banhxe();
+		xemay.speed();
+		xemay.tenxe();
+		xe carPolo = new xemay(2,130,"xe may");
+		carPolo.DongCoXang();// bao loi
+		carPolo = new toto();
+		carPolo.DongCoDau();// bao loi
+	}
+
+}

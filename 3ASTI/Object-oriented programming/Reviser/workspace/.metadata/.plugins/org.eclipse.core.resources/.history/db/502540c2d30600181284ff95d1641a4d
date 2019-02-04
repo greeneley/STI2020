@@ -1,0 +1,12 @@
+package Dongvat;
+
+public class Dog extends animal {
+	public Dog(){
+		
+	}
+	@Override
+	public String TiengKeu(){
+		System.out.println("GauGau");
+	}
+	
+}

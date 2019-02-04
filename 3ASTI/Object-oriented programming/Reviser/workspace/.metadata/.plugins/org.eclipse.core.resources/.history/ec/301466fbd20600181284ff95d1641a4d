@@ -1,0 +1,20 @@
+
+public class JobDemo {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		AbstractJob job1 = new Javacoding();
+		job1.doJob();
+		String jobName = job1.getJobname();
+		System.out.println("Job Name 1= "+ jobName);
+		BuildHouse job2 = new BuildHouse();
+		job2.doJob(); 
+	    String jobName2 = job2.getJobName();
+	    System.out.println("Job Name 2= " + jobName2);
+		 
+	}
+
+}

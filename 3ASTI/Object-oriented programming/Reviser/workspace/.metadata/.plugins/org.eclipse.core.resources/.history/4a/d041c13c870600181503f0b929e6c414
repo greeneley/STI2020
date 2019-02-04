@@ -1,0 +1,13 @@
+package Solution;
+
+public class test {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		System.out.println("thanhhai 123");
+		equation p1= new equation(1, 2);
+	}
+
+}

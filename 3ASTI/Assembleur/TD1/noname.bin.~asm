@@ -1,0 +1,4 @@
+var1 DW 1234h
+var2 DW 1243h
+mov AX,var1;
+

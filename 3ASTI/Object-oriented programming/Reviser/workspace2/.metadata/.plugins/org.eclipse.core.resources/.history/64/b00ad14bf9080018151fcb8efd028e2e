@@ -1,0 +1,15 @@
+package phuongtien;
+
+public class Bird implements IFly, IRun {
+
+	public void run() {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void fly() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

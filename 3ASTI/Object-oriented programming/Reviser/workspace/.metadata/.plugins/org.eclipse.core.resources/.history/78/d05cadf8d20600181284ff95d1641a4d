@@ -1,0 +1,10 @@
+
+public class BuildHouse extends ManualJob{
+	public BuildHouse(){
+		
+	}
+	public void doJob(){
+		System.out.println("Build a House");
+	}
+
+}

@@ -1,0 +1,17 @@
+package phuongtien;
+
+public class Test {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		xemay xemay= new xemay(2, 150);
+		xemay.SoBanhXe();
+		xemay.speed();
+		xe velo=new xedap(2, 30);
+		velo.banhxe;
+	}
+
+}

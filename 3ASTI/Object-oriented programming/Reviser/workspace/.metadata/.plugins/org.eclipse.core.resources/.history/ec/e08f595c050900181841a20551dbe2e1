@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" size="917,659" id="safes" metadata="uml2-1.0" initialized="true" tag="1000" key="32303037303533312D313030302072657669736572352F616E686368">
+  <children xsi:type="editmodel:ClassEditModel" name="Saphir" location="663,457" size="204,115" id="valuables/Saphir" runTimeClassModel="expertize(),Saphir(DD)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="181,40">
+      <children xsi:type="editmodel:MethodEditModel" name="Saphir" id="valuables/Saphir#Saphir(DD)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="expertize" id="valuables/Saphir#expertize()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="valuables/Gemstone&lt;-valuables/Saphir" source="//@children.0" target="//@children.3/@sourceConnections.0" targetEnd="//@children.0/@sourceConnections.0/@children.1" sourceEnd="//@children.0/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="102,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="196,119"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showStaticAttributes="true" showPublicMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="Rubis" location="464,457" size="198,115" id="valuables/Rubis" runTimeClassModel="Rubis(DD),expertize()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="175,40">
+      <children xsi:type="editmodel:MethodEditModel" name="Rubis" id="valuables/Rubis#Rubis(DD)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="expertize" id="valuables/Rubis#expertize()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="valuables/Gemstone&lt;-valuables/Rubis" source="//@children.1" target="//@children.3/@sourceConnections.0" targetEnd="//@children.1/@sourceConnections.0/@children.1" sourceEnd="//@children.1/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="98,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="150,152"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showStaticAttributes="true" showPublicMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="SafeWithCode" location="50,457" size="199,117" id="safes/SafeWithCode" runTimeClassModel="code,SafeWithCode(II),open(I)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="78,20">
+      <children xsi:type="editmodel:AttributeEditModel" name="code" id="safes/SafeWithCode#code"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="176,40">
+      <children xsi:type="editmodel:MethodEditModel" name="SafeWithCode" id="safes/SafeWithCode#SafeWithCode(II)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="open" id="safes/SafeWithCode#open(I)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="safes/Safe&lt;-safes/SafeWithCode" source="//@children.2" target="//@children.6" targetEnd="//@children.2/@sourceConnections.0/@children.1" sourceEnd="//@children.2/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="99,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="99,297"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showStaticAttributes="true" showPublicMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="Emerald" location="249,457" size="217,115" id="valuables/Emerald" runTimeClassModel="expertize(),Emerald(DD)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="194,40">
+      <children xsi:type="editmodel:MethodEditModel" name="Emerald" id="valuables/Emerald#Emerald(DD)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="expertize" id="valuables/Emerald#expertize()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" targetConnections="//@children.1/@sourceConnections.0 //@children.0/@sourceConnections.0" autoLocated="true" id="valuables/Gemstone&lt;-valuables/Emerald" source="//@children.3" target="//@children.4" targetEnd="//@children.3/@sourceConnections.0/@children.1" sourceEnd="//@children.3/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="107,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="115,175" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showStaticAttributes="true" showPublicMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.6/@sourceConnections.0 //@children.3/@sourceConnections.0" name="Gemstone" location="495,150" size="230,175" id="valuables/Gemstone" runTimeClassModel="volume,Gemstone(DD),weight,expertize(),value">
+    <children xsi:type="editmodel:CompartmentEditModel" size="123,60">
+      <children xsi:type="editmodel:AttributeEditModel" name="value" id="valuables/Gemstone#value"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="volume" id="valuables/Gemstone#volume"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="weight" id="valuables/Gemstone#weight"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="207,40">
+      <children xsi:type="editmodel:MethodEditModel" name="Gemstone" id="valuables/Gemstone#Gemstone(DD)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="expertize" id="valuables/Gemstone#expertize()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" targetConnections="//@children.6/@sourceConnections.1" autoLocated="true" id="safes/ToSale&lt;-valuables/Gemstone" source="//@children.4" target="//@children.5" targetEnd="//@children.4/@sourceConnections.0/@children.1" sourceEnd="//@children.4/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="115,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="63,83" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showStaticAttributes="true" showPublicMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.4/@sourceConnections.0" name="ToSale" location="390,30" size="133,85" id="safes/ToSale" runTimeClassModel="value">
+    <children xsi:type="editmodel:CompartmentEditModel" size="110,20">
+      <children xsi:type="editmodel:AttributeEditModel" name="value" id="safes/ToSale#value"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showStaticAttributes="true" showPublicMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.2/@sourceConnections.0" name="Safe" location="50,142" size="253,297" id="safes/Safe" runTimeClassModel="isEmpty(),isFull(),currentGemsNb,getValue(),weight,opened,open(I),removeGem(),Safe(I),capacity,addGem(Lvaluables.Gemstone;),close()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="152,80">
+      <children xsi:type="editmodel:AttributeEditModel" name="capacity" id="safes/Safe#capacity"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="currentGemsNb" id="safes/Safe#currentGemsNb"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="opened" id="safes/Safe#opened"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="weight" id="safes/Safe#weight"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="230,160">
+      <children xsi:type="editmodel:MethodEditModel" name="Safe" id="safes/Safe#Safe(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="addGem" id="safes/Safe#addGem(Lvaluables.Gemstone;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="close" id="safes/Safe#close()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getValue" id="safes/Safe#getValue()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="isEmpty" id="safes/Safe#isEmpty()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="isFull" id="safes/Safe#isFull()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="open" id="safes/Safe#open(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="removeGem" id="safes/Safe#removeGem()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="safes/Safe@mySafe+valuables/Gemstone@" source="//@children.6" target="//@children.4" targetEnd="//@children.6/@sourceConnections.0/@children.2" label="//@children.6/@sourceConnections.0/@children.0" sourceEnd="//@children.6/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,18" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="mySafe" location="253,95" id="safes/Safe@mySafe+valuables/Gemstone@|safes/Safe#mySafe" attachSource="true" multiplicityLabel="//@children.6/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.6/@sourceConnections.0/@children.1/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - mySafe" location="310,212" size="66,18" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="310,244" size="26,18" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,87" id="safes/Safe@mySafe+valuables/Gemstone@|valuables/Gemstone#" roleLabel="//@children.6/@sourceConnections.0/@children.2/@children.0">
+        <children xsi:type="editmodel:LabelEditModel" location="488,212" size="0,18" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="safes/ToSale&lt;-safes/Safe" source="//@children.6" target="//@children.4/@sourceConnections.0" targetEnd="//@children.6/@sourceConnections.1/@children.1" sourceEnd="//@children.6/@sourceConnections.1/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="125,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="89,32"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showStaticAttributes="true" showPublicMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" properties="wireOptions=1;Product=eUML2" autoName="false"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="15,15" gridOrigin="0,0" rulerUnit="pixel" gridVisibility="false">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" showPopupBars="true" showConnectionHandles="true" showMethodsParameterTypes="true" showMethodsReturnType="true" attributeSorter="Natural" methodSorter="Natural" showClassStereotype="true" showPackageStereotype="true" showDependencyStereotype="true" showInterfaceStereotype="true" innerClassSorter="Natural" showPublicAttributes="true" showStaticAttributes="true" showPublicMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+</editmodel:ClassDiagramEditModel>

@@ -1,0 +1,18 @@
+package phuongtien;
+
+public class xemay extends xe{
+	public int banhxe;
+	public int speed;
+
+
+	public xemay(final int banhxe, final int speed){
+		this.banhxe=banhxe;
+		this.speed=speed;
+	}
+	public void SoBanhXe(){
+		System.out.println("So banh xe cua xe may la: "+banhxe);
+	}
+	public void speed(int speed){
+		System.out.println("Toc do cua xe may la: "+speed);
+	}
+}

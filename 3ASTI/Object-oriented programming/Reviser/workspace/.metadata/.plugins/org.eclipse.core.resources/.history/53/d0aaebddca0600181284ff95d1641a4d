@@ -1,0 +1,8 @@
+
+public abstract class JobDemo {
+	public AbstractJob(){
+		
+	}
+	public abstract String getJobname();
+	public abstract void doJob();
+}

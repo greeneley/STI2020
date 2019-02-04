@@ -1,0 +1,5 @@
+package sauf;
+
+public class NotExpertiseException {
+
+}

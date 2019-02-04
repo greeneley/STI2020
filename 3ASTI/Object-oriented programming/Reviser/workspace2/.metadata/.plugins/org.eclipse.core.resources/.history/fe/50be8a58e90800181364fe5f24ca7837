@@ -1,0 +1,6 @@
+package phuongtien;
+
+public abstract class xe {
+	public int banhxe();
+	
+}

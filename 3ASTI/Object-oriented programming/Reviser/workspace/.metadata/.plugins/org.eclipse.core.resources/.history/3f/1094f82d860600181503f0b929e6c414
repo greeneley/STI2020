@@ -1,0 +1,15 @@
+package Solution;
+
+public class equation {
+	public float  A;
+	public float  B;
+	boolean solved;
+	public float solution;
+	float getA(){
+		return this.A;
+	}
+	float getB(){
+		return this.B;
+	}
+	
+}

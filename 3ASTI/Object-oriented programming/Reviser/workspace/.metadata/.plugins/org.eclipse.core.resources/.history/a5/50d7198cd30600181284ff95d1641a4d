@@ -1,0 +1,8 @@
+package Dongvat;
+
+public class animal {
+	public void TiengKeu(){
+		System.out.println( "Meo Meo");		
+	}
+	
+}

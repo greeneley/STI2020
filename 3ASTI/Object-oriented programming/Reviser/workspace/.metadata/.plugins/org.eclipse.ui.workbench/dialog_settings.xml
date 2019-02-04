@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="WorkbenchPreferenceDialogSettings">
+		<item value="588" key="DIALOG_X_ORIGIN"/>
+		<item value="135" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="NewWizardAction">
+	</section>
+	<section name="ImportExportAction">
+		<item value="org.eclipse.ui.wizards.import.ExternalProject" key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID"/>
+		<list key="ImportExportPage.STORE_EXPANDED_IMPORT_CATEGORIES">
+			<item value="org.eclipse.ui.Basic"/>
+		</list>
+	</section>
+	<section name="ZipFileImportWizard">
+		<item value="false" key="WizardZipFileResourceImportPage1.STORE_OVERWRITE_EXISTING_RESOURCES_ID"/>
+		<list key="WizardZipFileResourceImportPage1.STORE_SOURCE_NAMES_ID">
+			<item value="D:\Thanhhai\hoctap\3A STI\JAVA\Reviser\TD6\SimpleSafe.zip"/>
+			<item value="D:\Thanhhai\hoctap\3A STI\JAVA\Reviser\TD5\InitialSafe.zip"/>
+		</list>
+	</section>
+	<section name="FileSystemImportWizard">
+		<item value="false" key="WizardFileSystemResourceImportPage1.STORE_CREATE_CONTAINER_STRUCTURE_ID"/>
+		<item value="false" key="WizardFileSystemResourceImportPage1.STORE_OVERWRITE_EXISTING_RESOURCES_ID"/>
+		<list key="WizardFileSystemResourceImportPage1.STORE_SOURCE_NAMES_ID">
+			<item value="D:\Thanhhai\hoctap\3A STI\JAVA\Reviser\TD6\CoffreAndCo"/>
+			<item value="D:\Thanhhai\hoctap\3A STI\JAVA\Reviser\TD5\InitialSafe\CoffreAndCo\src"/>
+			<item value="D:\Thanhhai\hoctap\3A STI\JAVA\Reviser\TD5\InitialSafe"/>
+			<item value="D:\Thanhhai\hoctap\3A STI\JAVA\TD_INSA\Workspace\CoffreAndCo"/>
+			<item value="D:\Thanhhai\hoctap\3A STI\JAVA\TD_INSA\TD2\Hierarchie"/>
+		</list>
+	</section>
+</section>

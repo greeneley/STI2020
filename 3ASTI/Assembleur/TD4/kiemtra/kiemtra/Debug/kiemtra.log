@@ -1,0 +1,23 @@
+﻿Build started 1/4/2018 8:59:21 AM.
+     1>Project "D:\Thanhhai\hoctap\3A\Assembleur\TD4\kiemtra\kiemtra\kiemtra.vcxproj" on node 2 (Build target(s)).
+     1>_MASM:
+         Assembling thanhhai.asm...
+         cmd.exe /C "C:\Users\anhch\AppData\Local\Temp\tmp589daf287b2d4b348f2fdc500c77eeb1.cmd"
+         ml.exe /c /nologo /Zi /Fo"Debug\thanhhai.obj" /W3 /errorReport:prompt  /Tathanhhai.asm
+     1>thanhhai.asm(15): error A2006: undefined symbol : DGROUP
+     1>thanhhai.asm(35): error A2074: cannot access label through segment registers
+     1>thanhhai.asm(37): error A2074: cannot access label through segment registers
+     1>thanhhai.asm(39): error A2074: cannot access label through segment registers
+     1>thanhhai.asm(43): error A2074: cannot access label through segment registers
+     1>thanhhai.asm(49): error A2074: cannot access label through segment registers
+     1>thanhhai.asm(62): error A2074: cannot access label through segment registers
+     1>thanhhai.asm(63): error A2074: cannot access label through segment registers
+     1>thanhhai.asm(66): error A2074: cannot access label through segment registers
+     1>thanhhai.asm(67): error A2074: cannot access label through segment registers
+     1>thanhhai.asm(75): warning A4023: with /coff switch, leading underscore required for start address : start
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V110\BuildCustomizations\masm.targets(49,5): error MSB3721: The command "ml.exe /c /nologo /Zi /Fo"Debug\thanhhai.obj" /W3 /errorReport:prompt  /Tathanhhai.asm" exited with code 1.
+     1>Done Building Project "D:\Thanhhai\hoctap\3A\Assembleur\TD4\kiemtra\kiemtra\kiemtra.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.30

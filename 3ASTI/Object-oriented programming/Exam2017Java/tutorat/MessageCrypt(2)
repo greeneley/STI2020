@@ -1,0 +1,30 @@
+package tutorat;
+
+public class MessageCrypté extends Message{
+	
+	String type;
+	public void crypter(){
+		if (this.type.equals("AES")) {
+			MessageCryptéAESs Cipher=new MessageCryptéAESs();
+			Cipher.crypter();
+		}
+		else if (this.type.equals("Rot13")) {
+			MessageCryptéRot13s Cipher=new MessageCryptéRot13s();
+			Cipher.crypter();
+		}
+	}
+	
+	public void decrypter(){
+		if (this.type.equals("AES")) {
+			MessageCryptéAESs Cipher=new MessageCryptéAESs();
+			Cipher.decrypter();
+		}
+		else if (this.type.equals("Rot13")) {
+			MessageCryptéRot13s Cipher=new MessageCryptéRot13s();
+			Cipher.decrypter();
+		}
+	}
+	
+	
+
+}

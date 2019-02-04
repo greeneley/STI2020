@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <description url="http://www.soyatec.com/euml2">
+      eUML2 Official Site
+   </description>
+   <feature url="features/com.soyatec.eemf_3.7.1.20110624.jar" id="com.soyatec.eemf" version="3.7.1.20110624">
+      <category name="eUML2 Studio Edition"/>
+   </feature>
+   <feature url="features/com.soyatec.database_3.7.1.20110624.jar" id="com.soyatec.database" version="3.7.1.20110624">
+      <category name="eUML2 Studio Edition"/>
+   </feature>
+   <feature url="features/com.soyatec.edepend_3.7.1.20110624.jar" id="com.soyatec.edepend" version="3.7.1.20110624">
+      <category name="eUML2 Studio Edition"/>
+   </feature>
+   <feature url="features/com.soyatec.euml2_3.7.1.20110624.jar" id="com.soyatec.euml2" version="3.7.1.20110624">
+      <category name="eUML2 Studio Edition"/>
+   </feature>
+   <feature url="features/com.soyatec.euml2.studio_3.7.1.20110624.jar" id="com.soyatec.euml2.studio" version="3.7.1.20110624">
+      <category name="eUML2 Studio Edition"/>
+   </feature>
+   <feature url="features/com.soyatec.database.doc_3.7.1.20110624.jar" id="com.soyatec.database.doc" version="3.7.1.20110624">
+      <category name="eUML2 Studio Edition"/>
+   </feature>
+   <feature url="features/com.soyatec.edepend.doc_3.7.1.20110624.jar" id="com.soyatec.eDepend.doc" version="3.7.1.20110624">
+      <category name="eUML2 Studio Edition"/>
+   </feature>
+   <feature url="features/com.soyatec.euml2.doc_3.7.1.20110624.jar" id="com.soyatec.euml2.doc" version="3.7.1.20110624">
+      <category name="eUML2 Studio Edition"/>
+   </feature>
+   <category-def name="eUML2 Studio Edition" label="eUML2 Studio Edition"/>
+</site>

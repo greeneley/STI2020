@@ -1,0 +1,10 @@
+package TD2;
+
+import org.chocosolver.solver.Model;
+
+public class exercice2 {
+	public void modelAndSolve() {
+		Model model = new Model("Ordonnancement");
+		
+	}
+}

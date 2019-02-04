@@ -1,0 +1,219 @@
+package TD2;
+
+import java.util.Scanner;
+import org.chocosolver.solver.Model;
+import org.chocosolver.solver.Solution;
+import org.chocosolver.solver.variables.IntVar;
+public class exercice3b {
+	private int[][] transaction; 
+	private int ressource;
+	private int nb_transaction;
+	private int compteur_faux;
+	private boolean has_0;
+	private boolean has_solution;
+	// array pour sauvegarder le numero de transaction dans l'ordonnancement.
+	private int[] resultat_transaction;
+	private int[] resultat_final;
+	public exercice3b(int ressource, int[][] operation, int nb_transaction) {
+		this.transaction = operation;
+		this.ressource = ressource;
+		this.nb_transaction = nb_transaction;
+		this.resultat_transaction = new int[this.nb_transaction];
+		this.resultat_final = new int[this.nb_transaction];
+		this.resultat_transaction[0] = 1;
+		this.resultat_transaction[1] = 0;
+		this.resultat_transaction[2] = 0;
+		this.resultat_transaction[3] = 0;
+		this.resultat_transaction[4] = 0;
+		this.compteur_faux = 0;
+		this.has_0 = false;
+		this.has_solution = false;
+	}
+/*
+	public int[][] getTransaction() {
+		return transaction;
+	}
+
+	public void setTransaction(int[][] transaction) {
+		this.transaction = transaction;
+	}
+	
+	public int getRessource() {
+		return ressource;
+	}
+
+	public void setRessource(int ressource) {
+		this.ressource = ressource;
+	}
+*/
+	public void write_solution() {
+		for (int i=0; i< this.nb_transaction;i++) {
+			this.resultat_final[i] = this.resultat_transaction[i];
+		}
+	}
+	public void modelAndSolve() {
+
+		int n = this.ressource;
+		Model model = new Model("Serialisabilite");
+		IntVar[] T = new IntVar[n];
+		
+		for(int q = 0; q < n ; q++){
+            T[q] = model.intVar("T_"+q, 1, n); 
+        }
+		int[][] transaction = this.transaction;
+		// Contrainte 1: T[i] != T[j] , i et j sont 2 transactions differents
+		for(int i  = 0; i < n-1; i++){
+			for(int j = i + 1; j < n; j++){
+				model.arithm(T[i], "!=", T[j]).post();
+			}
+		}
+		// Contrainte 2
+		// Pour 2 transactions differents
+		for(int i = 0; i < transaction.length; i++) {
+			for(int j = 0; j < transaction.length; j++) {
+				if ( i != j) {
+					// if manipuler le meme objet
+					if(transaction[i][2] == transaction[j][2]) {
+						// on a 2 operations reads
+						// l'ordre dans la sequence differente
+						if((transaction[i][0] == 1 && transaction[j][0] == 1) || transaction[i][3] < transaction[j][3]) {
+							// on a Ti < Tj
+							model.arithm(T[transaction[i][1] - 1], "<", T[transaction[j][1] - 1]).post();
+						}
+					}
+				}
+			}
+		}
+
+		Solution solution = model.getSolver().findSolution();
+        if(solution != null){
+            System.out.println(solution.toString());
+        }
+        
+	}
+	public boolean is_legal() {
+		/*
+		 *  Fonction verifier pour les conflictions.
+		 */
+		
+		this.has_solution = false;
+		this.has_0 = false;
+		
+		for (int i = 0; i < nb_transaction; i++) {
+            System.out.print(this.resultat_transaction[i]);
+        }
+		System.out.print("\n");
+		
+		
+		// Contraine 1
+		int n = this.nb_transaction;
+		for(int i  = 0; i < n-1; i++){
+				
+			for(int j = i + 1; j < n; j++){
+				if ((this.resultat_transaction[i]!= 0) && (this.resultat_transaction[j]!= 0))
+				{
+					if (this.resultat_transaction[i] == this.resultat_transaction[j])
+					{
+						this.compteur_faux += 1;
+						this.has_solution = false;
+						return false;
+					}
+				}
+			}
+		}
+		// Contrainte 2
+		// Pour 2 transactions differents
+		
+		for(int i = 0; i < this.transaction.length; i++) {
+			for(int j = 0; j < this.transaction.length; j++) {
+				if ( i != j) {
+					// if manipuler le meme objet
+					if(this.transaction[i][2] == this.transaction[j][2]) {
+						// on a 2 operations reads
+						// l'ordre dans la sequence differente
+						if((this.transaction[i][0] == 1 &&  this.transaction[j][0] == 1)||(transaction[i][3] < transaction[j][3])) {
+							// if not Ti < Tj retourne False
+							if ((!(this.resultat_transaction[this.transaction[i][1] - 1] < this.resultat_transaction[this.transaction[j][1] - 1])) 
+										&& (this.resultat_transaction[this.transaction[j][1] - 1]!= 0) 
+										&& (this.resultat_transaction[this.transaction[j][1] - 1]!= 0))									
+								{
+									this.compteur_faux += 1;this.has_solution = false;return false;
+								}
+						}
+					}
+				}
+			}
+					
+		}
+		for(int i = 0; i < this.nb_transaction; i++) {
+			if (this.resultat_transaction[i] == 0) this.has_0 = true;
+		}
+		if (!this.has_0) {
+			System.out.println(" SOLUTION TROUVEE"); 
+			this.has_solution = true;
+			return true;
+		}
+		this.has_solution = false;
+		return true;
+		
+	}
+	public void Backtracking_solver(int r) {
+		if(r < this.nb_transaction) {
+			for (int i = 1; i <= this.nb_transaction; i++) {
+				this.resultat_transaction[r] = i;
+				if (is_legal()||(this.compteur_faux == 5)){
+					
+					this.compteur_faux =0;
+					Backtracking_solver(r+1);
+					if (this.has_solution) {
+						write_solution(); return;
+					} 	
+				}
+				for (int k = 0; k <= this.nb_transaction - r-1; k++) {
+					this.resultat_transaction[r+k] = 0 ;
+				}
+			} 
+		} else return;
+	}
+	public static void main(String[] args) {
+//		Scanner input = new Scanner(System.in);	
+//    	System.out.println("Combien de ressources: ");
+//    	int nb_ressource = input.nextInt();
+//    	System.out.println("Combien de transactions: ");
+//    	int nb_transaction = input.nextInt();
+//    	int nb_operation = 2 * nb_transaction;
+
+    	/* Pour saisir
+    	int[][] operation = new int[nb_operation][4];
+    	for (int i = 0; i < nb_operation.length; i++) {
+			System.out.println("Value d'operation " + (i+1) + ": \n");
+			System.out.println("Write ( = 0)  or Read ( = 1):");
+			operation[i][0] = input.nextInt();
+			System.out.println("Numero de transaction: ");
+			operation[i][1] = input.nextInt();
+			System.out.println("Ressource manipule: ");
+			operation[i][2] = input.nextInt();
+			operation[i][3] = i + 1;
+		}*/
+//    	input.close();
+    	int nb_ressource = 5;
+    	int nb_transaction = 10;
+    	int[][] operation = {{0,1,1,1},{1,2,1,2},{0,1,2,3},{0,3,3,4},{1,2,3,5},{1,4,2,6},{0,2,4,7},{0,4,5,8},{1,5,4,9},{0,5,5,10}} ;
+    	System.out.println("Operation: ");
+    	for (int i = 0; i < operation.length; i++) {
+			System.out.println("{"+operation[i][0]+","+operation[i][1]+","+operation[i][2]+","+operation[i][3]+"}");
+		}
+    	
+		ex3 test = new ex3(nb_ressource, operation ,nb_transaction);
+		long start = System.currentTimeMillis();
+//        test.modelAndSolve();
+//        System.out.println("Temps d'exécution"+(System.currentTimeMillis()-start)); 
+//        start = System.currentTimeMillis();
+        test.Backtracking_solver(0);
+//        System.out.println("Temps d'exécution"+(System.currentTimeMillis()-start)); 
+        for (int i = 0; i < nb_transaction; i++) {
+            System.out.println("L'ordonnancement de transaction " + i + " est : " + test.resultat_final[i]);
+        }
+
+    }
+}

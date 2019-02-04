@@ -1,0 +1,6 @@
+INDEX VERSION 1.130+D:\Thanhhai\hoctap\4A_STI\Calculabilite\workspace\.metadata\.plugins\org.eclipse.jdt.core
+3017952843.index
+3058502829.index
+919068912.index
+382231476.index
+2898025421.index

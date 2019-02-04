@@ -1,0 +1,14 @@
+package TD2;
+
+import org.chocosolver.solver.Model;
+import org.chocosolver.solver.variables.BoolVar;
+
+public class test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Model model = new Model("Serialisabilite");
+		BoolVar b = model.boolVar("b");
+	}
+
+}

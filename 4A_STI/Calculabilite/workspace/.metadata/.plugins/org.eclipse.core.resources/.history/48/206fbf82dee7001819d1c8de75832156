@@ -1,0 +1,9 @@
+package TD2;
+
+public class exercice3 {
+	public void modelAndSolve() {
+		int n = 10;
+		Model model = new Model("Ordonnancement");
+		IntVar[] deb = new IntVar[n];
+		
+}

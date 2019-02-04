@@ -1,0 +1,14 @@
+package tp;
+
+public class Redacteur extends Thread {
+
+		private String chaine;
+		private Ressource lock = new Ressource(null);
+		
+		public Redacteur(Ressource r1) {
+			this.lock = r1;
+		}
+		public void run() {
+			this.lock.getChaine();
+		}
+}

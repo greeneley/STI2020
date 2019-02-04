@@ -1,0 +1,87 @@
+package tp;
+
+import java.util.ArrayList;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+public class main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		ArrayList<String> scripts = new ArrayList<String>();
+		scripts.add("test3");
+		scripts.add("test4");
+		scripts.add("test5"); 
+		
+		ArrayList<String> scripts2 = new ArrayList<String>();
+		scripts2.add("test6");
+		scripts2.add("test7");
+		scripts2.add("test8"); 
+		// CREE LA RESSOURCE
+		Ressource r1 = new Ressource(scripts); // FOR QUESTION 1-A
+		Ressource r2 = new Ressource(scripts2); // FOR QUESTION 1-B
+		// ========================================
+		// >>>>>>>> Question 1-A <<<<<<<<<<<<<<<<<<
+		// =======================================
+
+		// CREE 5 LECTEUR 
+		Lecteur l1 = new Lecteur(1, r1);
+		Lecteur l2 = new Lecteur(2, r1);
+		Lecteur l3 = new Lecteur(3, r1);
+		Lecteur l4 = new Lecteur(4, r1);
+		Lecteur l5 = new Lecteur(5, r1);
+		
+		// CREE 3 REDACTEUR
+		Redacteur red1 = new Redacteur(1,r1, "tata");
+		Redacteur red2 = new Redacteur(2,r1, "hello");
+		Redacteur red3 = new Redacteur(3,r1, "ajinomoto");
+		
+		red1.start();
+		red2.start();
+		red3.start();
+
+		l1.start();
+		
+		// ========================================
+		// >>>>>>>> Question 1-B <<<<<<<<<<<<<<<<<<
+		// ========================================
+		
+		// UTILISATION LE POOL DE THREADS 
+		
+		Integer m = 5; // SET VALUE M IN HERE, PAR EXAMPLE: M = 5
+		
+		ExecutorService pool = Executors.newFixedThreadPool(m); // permettre creer m thread a` chaque fois
+		for(int i = 0 ; i < m; i++) {
+			Redacteur write = new Redacteur(i, r2, "question1-b");
+			pool.submit(write);
+			try {
+				write.start();
+			} catch(Exception e) {
+				e.printStackTrace();
+			}	
+		}
+		for(int j = 0; j < 2*m; j++) {
+			Lecteur read = new Lecteur(j, r2);
+			pool.submit(read);
+			try {
+				read.start();
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		// SHUT DOWN THE POOL
+		pool.shutdown();
+		
+		// ========================================
+		// >>>>>>>> Question 2 <<<<<<<<<<<<<<<<<<
+		// ========================================
+		
+		// LA SOLUTION: On utilise newSingleThreadExecutor pour pouvoir instancier un seul la classe Ressource 
+		// Mon ideal:
+		ExecutorService service1 = Executors.newSingleThreadExecutor();
+		// On utilise service1 pour declarer une nouvelle Ressource.
+		Ressource new_ressource = new Ressource(scripts2);
+		
+	}
+
+}

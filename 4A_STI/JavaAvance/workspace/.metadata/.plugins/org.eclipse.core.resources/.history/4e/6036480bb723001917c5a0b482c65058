@@ -1,0 +1,15 @@
+package tp;
+
+public class Ressource {
+	public String chaine[];
+
+	public Ressource() {
+		
+	}
+	public Ressource(String[] chaine) {
+		super();
+		System.out.println(chaine);
+		this.chaine = chaine;
+	}
+	
+}

@@ -1,0 +1,41 @@
+package tp;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+public class Redacteur extends Thread {
+		private Integer index ;
+		private String nouvel_chaine; //  donner cette nouvel_chaine a` ressource r1 en contenant son nom (INDEX)
+		private Ressource lock = new Ressource();
+		public Redacteur() {}
+		
+		public Ressource getLock() {
+			return lock;
+		}
+		public Redacteur(Integer index, Ressource r1, String nouvel_chaine) {
+			this.lock = r1;
+			this.nouvel_chaine = ;
+			this.index = index;
+		}
+		public void run() {
+			for(int i = 0; i < 10; i++) {
+				synchronized (lock) {
+					// ================================
+					// =>>>> Prendre la ressource <<<<=
+					// ================================
+					Ressource res2 = new Ressource();
+					res2 = this.lock;
+					System.out.println("Redacteur: "+ this.index+ " Iteration: " + i +" Chaine: "+ res2.getChaine());
+					
+//					res2.setChaine(this.nouvel_chaine);
+					
+					System.gc(); 
+					try {
+						Thread.sleep(3000);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		}
+}

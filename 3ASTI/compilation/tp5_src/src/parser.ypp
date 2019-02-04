@@ -1,0 +1,694 @@
+/*****************************************************************************
+ *                DigCC: a minimal C compiler for DigMIPS                    *
+ ***************************************************************************** 
+ *                                                                           *
+ * Copyright (c) 2012 Christophe Alias                                       *
+ *                                                                           *
+ * This program is free software; you can redistribute it and/or modify it   *
+ * under the terms of the GNU General Public License as published by the     *
+ * Free Software Foundation; either version 2 of the License, or (at your    * 
+ * option) any later version.                                                *
+ *                                                                           *
+ * This program is distributed in the hope that it will be useful, but       *
+ * WITHOUT ANY WARRANTY; without even the implied warranty of                *
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General  *
+ * Public License for more details.                                          *
+ *                                                                           *
+ * You should have received a copy of the GNU General Public License along   *
+ * with this program; if not, write to the Free Software Foundation, Inc.,   *
+ * 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.                 *
+ *                                                                           *
+ * Written by Christophe Alias, Christophe.Alias@ens-lyon.fr                 *
+ *                                                                           *
+ *****************************************************************************/
+/* ============================================================== */
+/*                             C PRELUDE                          */
+/* ============================================================== */
+
+%{
+#include "Attributes.h"
+#include "Label.h"
+#include "Register.h"
+#include "Type.h"
+#include "SymbolTable.h"
+
+#include "CodeDigmips.h"
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <iostream>
+
+using namespace std;
+
+#define PTR_SIZE 1
+#define RETURN_REGISTER 2
+#define ARP 7
+#define SP 6
+#define SPILL0 0
+#define SPILL1 1
+
+
+int		line_number	= 1;	/* number of current source line */
+extern int	yylex();	/* lexical analyzer generated from lex.l */
+extern char	*yytext;	/* last token, defined in lex.l  */
+
+map<string,Type*> current_record; //used to set record types.
+vector<Type*> arg_type; //function calls type-checking
+Type* current_return_type; //return type-checking
+string label_end_function; //used by return
+
+
+void yyerror(char *s)
+  { fprintf(stderr, 
+	    "Line %d: syntax error. Last token was \"%s\"\n",
+	    line_number, yytext);
+    exit(1);
+  }
+void error(char *s)
+  { fprintf(stderr, 
+	    "Line %d: error: %s\n", line_number, s);
+    exit(1);
+  }
+
+%}
+
+/* ============================================================== */
+/*                     TYPES OF NON-TERMINALS                     */         
+/* ============================================================== */
+
+%union
+{
+  int integer;
+  char* id_string;
+
+  Type* type;
+  LhsExpr* lhs_expr;
+  RhsExpr* rhs_expr;
+}
+
+
+/* ============================================================== */
+/*                       TOKENS DECLARATION
+/* ============================================================== */
+
+/* Types */
+
+%token TK_INT_TYPE TK_CHAR_TYPE TK_VOID_TYPE
+%token TK_STRUCT
+%token TK_TYPEDEF
+%token TK_SIZEOF
+
+/* délimiteurs */
+%token TK_LPAR TK_RPAR
+%token TK_COMMA TK_SEMI
+%token TK_LACC TK_RACC
+
+/* opérations booléennes */
+%token TK_TRUE TK_FALSE
+
+/* opérations mixtes */
+%token TK_GREATER TK_GREATER_EQ TK_LOWER TK_LOWER_EQ TK_EQUAL TK_NEQUAL
+
+/* opérations arithmétiques */
+%token TK_PLUS TK_MINUS TK_MUL TK_DIV TK_MOD TK_PLUSPLUS
+%token TK_NUM
+%token TK_ID TK_TYPE_ID
+
+/* chaines de caractères */
+%token TK_CHAR TK_STRING
+
+/* Compound structure access */
+%token TK_LBRAC TK_RBRAC TK_REF TK_DOT
+
+/* allocation/deallocation *locale* */
+%token TK_ALLOC TK_FREE
+
+/* controle */
+%token TK_ASSIGN TK_IF TK_ELSE TK_WHILE
+%token TK_FOR
+%token TK_RETURN
+
+%token TK_ASM
+
+/* associativité */
+%left TK_PLUS TK_MINUS
+%left TK_MUL TK_DIV
+
+%type<integer> TK_NUM
+%type<integer> TK_CHAR
+%type<id_string> TK_ID
+%type<id_string> TK_TYPE_ID
+%type<id_string> TK_STRING
+%type<id_string> TK_ASM
+
+%type<type> type
+%type<type> base
+%type<type> pointer
+%type<type> array
+%type<type> record
+
+%type<rhs_expr> e_expr
+%type<rhs_expr> t_expr
+%type<rhs_expr> f_expr
+%type<rhs_expr> expr
+%type<lhs_expr> var_expr
+%type<integer> test
+
+/* axiom */
+%start prog
+
+%%
+
+/* ============================================================== */
+/*               GRAMMAR ITSELF WITH SEMANTIC ACTIONS             */
+/* ============================================================== */
+
+/* -------------------------------------------------------------- */
+/*                     0/ Type declaration                        */
+/* -------------------------------------------------------------- */
+
+type:
+  base
+    { $$ = $1; }
+| pointer
+    { $$ = $1; }
+| array
+    { $$ = $1; }
+| record
+    { $$ = $1; }
+| TK_TYPE_ID
+    { $$ = new Type(ID,$1); }
+| TK_LPAR type TK_RPAR
+    { $$ = $2; }
+;
+
+base:
+  TK_INT_TYPE
+    { $$ = new Type(INT); }
+| TK_CHAR_TYPE
+    { $$ = new Type(CHAR); }
+| TK_VOID_TYPE
+    { $$ = new Type(VOID); }
+;
+
+pointer:
+  type TK_MUL
+    { $$ = new Type(POINTER,$1); }
+;
+
+array:
+  type TK_LBRAC TK_NUM TK_RBRAC
+    { $$ = new Type(ARRAY,$1,$3); }
+;
+  
+record:
+  TK_STRUCT TK_LACC field_list TK_RACC
+    { $$ = new Type(RECORD,current_record); }
+;
+
+field_list:
+  type TK_ID TK_SEMI 
+    {
+      current_record.erase(current_record.begin(),current_record.end());
+      //reset 'current_record'
+      current_record[string($2)] = $1;
+    }
+| field_list type TK_ID TK_SEMI 
+    {
+      string id_str = string($3);
+
+      if(current_record.find(id_str) == current_record.end())
+	//field not already filled in?
+	current_record[id_str] = $2; //add to 'current_record'
+      else
+	{
+	  cerr << "parser::field_list: duplicate field: " << id_str << endl;
+	  exit(1);
+	}
+    }
+;
+
+type_def:
+  TK_TYPEDEF type TK_TYPE_ID TK_SEMI
+    { add_type($3,$2); }
+;
+
+type_def_list:
+| type_def_list type_def
+;
+
+
+/* -------------------------------------------------------------- */
+/*                  1/ Expressions (e.g. 2*x+y)                   */
+/* -------------------------------------------------------------- */
+
+//ETF (sub-)grammar
+
+e_expr: 
+  e_expr TK_PLUS t_expr 
+    { 
+      vector<Type*> args;
+      args.push_back($1->type); args.push_back($3->type); 
+      type_check((char*)"+",args); //type checking
+
+      int result_register = new_register(); 
+      add(result_register,$1->result_register,$3->result_register);
+      $$ = rhs(result_register,return_type((char*)"+"));
+    }
+| e_expr TK_MINUS t_expr 
+    { 
+      vector<Type*> args;
+      args.push_back($1->type); args.push_back($3->type); 
+      type_check((char*)"-",args); //type checking
+
+      ///////////////////////////////////////////////////////////
+      //EXERCICE
+    }
+| t_expr 
+    { $$ = $1; }
+;
+
+t_expr: 
+  t_expr TK_MUL f_expr
+    { 
+      vector<Type*> args;
+      args.push_back($1->type); args.push_back($3->type); 
+      type_check((char*)"*",args); //type checking
+
+      ///////////////////////////////////////////////////////////
+      //EXERCICE
+    }
+| t_expr TK_DIV f_expr
+    { 
+      vector<Type*> args;
+      args.push_back($1->type); args.push_back($3->type); 
+      type_check((char*)"/",args); //type checking
+
+      ///////////////////////////////////////////////////////////
+      //EXERCICE
+    }
+| f_expr
+    { $$ = $1; }
+;
+
+f_expr: 
+  TK_NUM
+    { 
+      ///////////////////////////////////////////////////////////
+      //EXERCICE
+    }
+| TK_CHAR
+    { 
+      ///////////////////////////////////////////////////////////
+      //EXERCICE
+    }
+| var_expr
+    { 
+      $$ = rhs($1->result_register,$1->type); 
+    }
+| TK_SIZEOF TK_LPAR TK_TYPE_ID TK_RPAR
+    {
+      Type* type = get_type($3);
+      int result_register = new_register();
+      ldi(result_register,type->size_of());
+      $$ = rhs(result_register,new Type(INT));
+    }
+| TK_ID TK_LPAR 
+    { 
+      arg_type.resize(0); //filled by caller_arg_list, type checking
+
+      string label_call = new_label("call");
+      label(label_call); //start a new basic block...
+
+      push_all(); 
+    } 
+  caller_arg_list TK_RPAR
+    { 
+      type_check($1,arg_type); //type checking
+      call($1); pop_all(); 
+
+      string label_end_call = new_label("end_call");
+      label(label_end_call); //end the basic block
+
+      $$ = rhs(RETURN_REGISTER,return_type($1)); 
+    }
+| TK_LPAR e_expr TK_RPAR 
+    { $$ = $2; }
+;
+
+var_expr:
+  TK_ID 
+    { 
+      Type* type = get_variable_type($1); //type checking
+
+      int result_register = get_register($1);
+      $$ = lhs(result_register,-1,type); 
+    }
+
+/* ---                    POINTERS                          -- */
+
+| TK_MUL var_expr /* e.g. *(a[i]) */
+    {
+      Type* type = $2->type->un_ref(); //type checking
+
+      int result_register = new_register();
+      int address_register = $2->result_register;
+      ld(result_register,address_register,0);
+
+      $$ = lhs(result_register,address_register,type);
+    }
+
+/* ---                ARRAYS (e.g. a[i][j+1])                -- */
+
+| var_expr TK_LBRAC e_expr TK_RBRAC
+    {
+      Type* type = $1->type->un_index(); //type checking
+
+      int result_register = new_register();
+      int address_register = new_register();
+      int shift_register = new_register();
+
+      copy(shift_register,$3->result_register);
+      for(int i=0; i<PTR_SIZE-1; i++)
+	add(shift_register,shift_register,$3->result_register);
+      //shift = i*PTR_SIZE (strength reduction)
+
+      sub(address_register,$1->result_register,shift_register);
+      ld(result_register,address_register,0); //?[i] => @(?+i)
+
+      $$ = lhs(result_register,address_register,type);
+    }
+
+/* ---                RECORDS (e.g. a.name)                -- */
+
+| var_expr TK_DOT TK_ID
+    {
+      Type* type = $1->type->un_field($3); //type checking
+
+      int field_rank = $1->type->get_field_rank($3);
+
+      ///////////////////////////////////////////////////////////
+      //EXERCICE
+    }
+
+| TK_LPAR var_expr TK_RPAR
+    { $$ = $2; }
+;
+
+
+expr: 
+  e_expr
+    { $$ = $1; }
+;
+
+
+/* -------------------------------------------------------------- */
+/*                2/ Conditions (e.g. 2*x+y != 0)                 */
+/* -------------------------------------------------------------- */
+
+test: 
+  expr TK_GREATER expr 
+    { 
+      ///////////////////////////////////////////////////////////
+      //EXERCICE
+    }
+| expr TK_GREATER_EQ expr 
+    { 
+      ///////////////////////////////////////////////////////////
+      //EXERCICE
+    }
+| expr TK_LOWER expr 
+    { 
+      ///////////////////////////////////////////////////////////
+      //EXERCICE
+    }
+| expr TK_LOWER_EQ expr 
+    { 
+      ///////////////////////////////////////////////////////////
+      //EXERCICE
+    }
+| expr TK_EQUAL expr
+    { 
+      ///////////////////////////////////////////////////////////
+      //EXERCICE
+    }
+| expr TK_NEQUAL expr
+    { 
+      ///////////////////////////////////////////////////////////
+      //EXERCICE
+    }
+| TK_LPAR test TK_RPAR
+    { $$ = $2; }
+;
+
+/* -------------------------------------------------------------- */
+/*                 3/ Statements (e.g. if, while)                 */
+/* -------------------------------------------------------------- */
+
+
+stmt:
+
+/* ---                ASSIGNMENT (e.g. x := e;)                -- */
+
+//Base-type assignment
+  TK_ID TK_ASSIGN expr TK_SEMI
+    { 
+      Type& lhs_type = *(get_variable_type($1));
+      Type& rhs_type = *($3->type);
+      if(!((lhs_type == rhs_type) || 
+	   (lhs_type.is_base() && rhs_type.is_base())))
+	{ 
+	  cerr << "Line " << line_number << ": error: assignment: type mismatch"
+	       << endl;
+	  exit(1);
+	}
+      //Type checking
+
+      copy(get_register($1),$3->result_register); 
+    }
+
+//Compound-type (pointer) assignment
+| var_expr TK_ASSIGN expr TK_SEMI                        
+    { 
+      Type& lhs_type = *($1->type);
+      Type& rhs_type = *($3->type);
+      if(!((lhs_type == rhs_type) || 
+	   (lhs_type.is_base() && rhs_type.is_base())))
+	{ 
+	  cerr << "Line " << line_number << ": error: assignment: type mismatch"
+	       << endl;
+	  exit(1);
+	}
+      //Type checking
+
+      st($1->address_register,0,$3->result_register);
+    }
+
+/* ---                    CONDITIONAL (IF)                     -- */
+
+| TK_IF test 
+    { 
+      string label_else = new_label("else");
+      string label_then = new_label("then");
+      int true_register = new_register();
+
+      ldi(true_register,1);
+      cjump($2,E,true_register,label_then);
+      //if false => goto label_else
+      j(label_else);
+      label(label_then);
+
+      push_label(label_else);
+    }
+  stmt_block
+    { 
+      string label_else = pop_label();
+      string label_endif = new_label("end_if");
+
+      j(label_endif);
+      label(label_else);
+
+      push_label(label_endif);
+    }
+  stmt_else
+    {
+      string label_endif = pop_label();
+      label(label_endif);
+    }
+  
+/* ---                       WHILE                             -- */
+
+| TK_WHILE test stmt_block
+      ///////////////////////////////////////////////////////////
+      //EXERCICE
+
+
+/* ---                        FOR                              -- */
+
+| TK_FOR TK_LPAR stmt test TK_SEMI TK_ID TK_PLUSPLUS TK_RPAR stmt_block
+      ///////////////////////////////////////////////////////////
+      //EXERCICE
+
+/* ---                       RETURN                            -- */
+
+| TK_RETURN expr TK_SEMI
+    { 
+      if(!(*($2->type) == *current_return_type))
+	{
+	  cerr << "Line " << line_number << ": error: wrong return type"
+	       << endl;
+	  exit(1);
+	} //Type checking
+
+      copy(RETURN_REGISTER,$2->result_register); 
+      j(label_end_function); 
+    }
+
+/* ---                       PROCEDURE CALL                    -- */
+
+| TK_ID TK_LPAR 
+    { 
+      arg_type.resize(0); //filled by caller_arg_list, type checking
+
+      string label_call = new_label("call");
+      label(label_call); //start a new basic block...
+
+      push_all(); 
+    } 
+  caller_arg_list TK_RPAR TK_SEMI
+    { 
+      type_check($1,arg_type); 
+      if(return_type($1)->type_id != VOID)
+	{
+	  cerr << "Line " << line_number << ": error: procedure must return "
+	       << "void" << endl;
+	  exit(1);
+	}
+      //type checking
+
+      call($1); pop_all(); 
+
+      string label_end_call = new_label("end_call");
+      label(label_end_call); //end the basic block...
+    }
+
+stmt_else:
+| TK_ELSE stmt_block
+;
+
+stmt_block:
+  stmt
+| TK_LACC stmt_list TK_RACC
+
+stmt_list:
+| stmt_list stmt
+;
+
+
+/* -------------------------------------------------------------- */
+/*              4/ Variable declarations (e.g. int x,y;)          */
+/* -------------------------------------------------------------- */
+
+declare_args:
+| type TK_ID
+    { 
+      Type* type = $1;
+      normalize_type(type); //substitute type IDs
+      add_argument_type(type); //type checking
+      add_argument($2,type); 
+    }
+| declare_args TK_COMMA type TK_ID
+    { 
+      Type* type = $3;
+      normalize_type(type); //substitute type IDs
+      add_argument_type(type); //type checking
+      add_argument($4,type); 
+    }
+;
+
+declare_local_vars:
+| declare_local_vars type TK_ID TK_SEMI
+    { 
+      Type* type = $2;
+      normalize_type(type); //substitute type IDs
+      add_local_var($3,type); 
+    }
+;
+
+/* -------------------------------------------------------------- */
+/*                 5/ Functions                                   */
+/* -------------------------------------------------------------- */
+
+caller_arg_list:
+| expr 
+    { 
+      arg_type.push_back($1->type); //type checking
+      push($1->result_register); 
+    }
+| caller_arg_list TK_COMMA expr
+    { 
+      arg_type.push_back($3->type); //type checking
+      push($3->result_register); 
+    }
+;
+
+
+function: 
+  type TK_ID TK_LPAR 
+    { 
+      add_function($2,$1); 
+      current_return_type = $1; //type checking
+      reset_registers(); reset_variables(); 
+    } 
+  declare_args TK_RPAR
+  TK_LACC declare_local_vars 
+    {
+      label($2); 
+      label_end_function = string($2);
+      label_end_function += "_end";
+      prelude();
+    }
+  stmt_list TK_RACC
+    {
+      label(label_end_function);
+      postlude();
+    }
+;
+
+function_list:
+| function_list function
+;
+
+/* -------------------------------------------------------------- */
+/*      5/ *Main production* (program=declarations+statements)    */
+/* -------------------------------------------------------------- */
+
+prog: 
+  type_def_list 
+    { 
+      normalize_types(); reset_functions(); //type checking
+
+      //Jump to the program's entry point
+      reset_registers();
+
+      //1) init the stack
+      ldi(SP,255); 
+
+      //2) init the heap
+      label(new_label("call"));
+      push_all();          
+      call("__init_heap"); 
+      pop_all(); 
+      label(new_label("end_call"));
+
+      //3) Jump to the entry point
+      label(new_label("call"));
+      push_all(); 
+      call("main");
+      pop_all();
+      label(new_label("end_call"));
+      
+      label("stop"); j("stop");
+    }
+  function_list function
+;

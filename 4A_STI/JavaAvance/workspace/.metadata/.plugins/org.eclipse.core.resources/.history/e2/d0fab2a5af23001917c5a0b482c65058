@@ -1,0 +1,21 @@
+package tp;
+
+public class Lecteur extends Thread{
+	private String chaine;
+	private Integer index;
+	public Lecteur(Integer index, Ressource r1) {
+		super();
+		this.chaine = r1.getChaine();
+		this.index = index;
+	}
+	public void run() {
+		for(int i = 0; i<5; i++) {
+			System.out.println("Lecteur: "+ this.index+ "C'est la chaine: "+ this.chaine);
+			try {
+				Thread.sleep(5000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+}

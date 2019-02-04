@@ -1,0 +1,11 @@
+INDEX VERSION 1.131+/home/haipro/Documents/4A_STI/JavaAvance/workspace/.metadata/.plugins/org.eclipse.jdt.core
+2003528739.index
+46869368.index
+601325085.index
+2513916789.index
+3616112167.index
+2916441248.index
+1978498416.index
+1989139296.index
+1843774699.index
+2178708306.index

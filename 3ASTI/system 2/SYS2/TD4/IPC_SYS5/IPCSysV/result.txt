@@ -1,0 +1,8 @@
+ Debut d'ecriture dans la zone partagee de 20 octets par le processus 25440
+ Fin d'ecriture dans la zone partage par le processus  25440
+ Debut d'ecriture dans la zone partagee de 20 octets par le processus 25440
+ Fin d'ecriture dans la zone partage par le processus  25440
+ Debut d'ecriture dans la zone partagee de 20 octets par le processus 25440
+ Fin d'ecriture dans la zone partage par le processus  25440
+ Debut d'ecriture dans la zone partagee de 20 octets par le processus 25440
+ Fin d'ecriture dans la zone partage par le processus  25440

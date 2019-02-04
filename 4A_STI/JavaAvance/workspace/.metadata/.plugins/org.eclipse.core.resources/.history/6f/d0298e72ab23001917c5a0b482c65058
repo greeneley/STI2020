@@ -1,0 +1,5 @@
+package tp;
+
+public class Lecteur extends Thread{
+
+}

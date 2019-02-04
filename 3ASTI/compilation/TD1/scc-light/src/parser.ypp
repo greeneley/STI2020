@@ -1,0 +1,239 @@
+/* ============================================================== */
+/*                             C PRELUDE                          */
+/* ============================================================== */
+
+%{
+#include "Label.h"
+#include "SymbolTable.h"
+#include "Backend.h"
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <iostream>
+
+using namespace std;
+
+int		line_number	= 1;	/* number of current source line */
+extern int	yylex();	/* lexical analyzer generated from lex.l */
+extern char	*yytext;	/* last token, defined in lex.l  */
+
+void yyerror(char *s)
+  { fprintf(stderr, 
+	    "Line %d: syntax error. Last token was \"%s\"\n",
+	    line_number, yytext);
+    exit(1);
+  }
+void error(char *s)
+  { fprintf(stderr, 
+	    "Line %d: error: %s\n", line_number, s);
+    exit(1);
+  }
+
+%}
+
+/* ============================================================== */
+/*                     TYPES OF NON-TERMINALS                     */         
+/* ============================================================== */
+
+%union
+{
+  int integer;
+  char* id_string;
+}
+
+
+/* ============================================================== */
+/*                       TOKENS DECLARATION
+/* ============================================================== */
+
+/* Types */
+
+%token TK_INT_TYPE
+
+/* délimiteurs */
+%token TK_LPAR TK_RPAR
+%token TK_COMMA TK_SEMI
+%token TK_LACC TK_RACC
+
+/* opérations mixtes */
+%token TK_GREATER TK_NEQ
+
+/* opérations arithmétiques */
+%token TK_PLUS TK_MINUS TK_MUL TK_PLUSPLUS
+%token TK_NUM
+%token TK_ID
+
+/* chaines de caractères */
+%token TK_CHAR TK_STRING
+
+/* controle */
+%token TK_ASSIGN TK_IF TK_ELSE TK_WHILE
+%token TK_FOR
+%token TK_RETURN
+
+/* built-in functions */
+%token TK_PRINT TK_INPUT
+
+/* associativité */
+%left TK_PLUS TK_MINUS
+%left TK_MUL TK_DIV
+
+%type<id_string> TK_ID
+%type<integer> TK_NUM
+
+/* axiom */
+%start prog
+
+%%
+
+/* ============================================================== */
+/*               GRAMMAR ITSELF WITH SEMANTIC ACTIONS             */
+/* ============================================================== */
+
+/* -------------------------------------------------------------- */
+/*                     0/ Type declaration                        */
+/* -------------------------------------------------------------- */
+
+type:
+  TK_INT_TYPE
+;
+
+/* -------------------------------------------------------------- */
+/*                  1/ Expressions (e.g. 2*x+y)                   */
+/* -------------------------------------------------------------- */
+
+//ETF (sub-)grammar
+
+e_expr: 
+  e_expr TK_PLUS t_expr { add();}
+| e_expr TK_MINUS t_expr { sub();} 
+| t_expr 
+;
+
+t_expr: 
+  t_expr TK_MUL f_expr { mul(); }
+| t_expr TK_DIV f_expr { div(); }
+| f_expr
+;
+
+f_expr: 
+  TK_NUM { mpush($1); }
+| TK_ID { push(get_address($1)); }
+| TK_LPAR e_expr TK_RPAR 
+;
+
+expr: 
+  e_expr
+;
+
+/* -------------------------------------------------------------- */
+/*                2/ Conditions (e.g. 2*x+y != 0)                 */
+/* -------------------------------------------------------------- */
+
+test: 
+  expr TK_GREATER expr { testg(); }
+| expr TK_NEQ expr { testne(); }
+| TK_LPAR test TK_RPAR
+;
+
+/* -------------------------------------------------------------- */
+/*                 3/ Statements (e.g. if, while)                 */
+/* -------------------------------------------------------------- */
+
+stmt:
+
+/* ---                ASSIGNMENT (e.g. x := e;)                -- */
+
+  TK_ID TK_ASSIGN expr TK_SEMI { pop(get_address($1)); }
+
+/* ---                    CONDITIONAL (IF)                     -- */
+
+| TK_IF test 
+    { 
+      string label_else = new_label("else"); 
+      jz(label_else); 
+      push_label(label_else);
+    } 
+  stmt_block 
+    {
+      string label_else = pop_label();
+      string label_endif = new_label("endif");
+      jmp(label_endif);
+      label(label_else);
+      push_label(label_endif);
+    }
+  stmt_else
+    {
+      string label_endif = pop_label();
+      label(label_endif);
+    }
+  
+/* ---                       WHILE                             -- */
+
+| TK_WHILE 
+  {
+   string label_while = new_label("while");
+   label(label_while);
+   push_label(label_while);
+  }
+   test 
+  {
+    string label_endwhile = new_label("end_while");
+    push_label(label_endwhile); 
+    jz(label_endwhile);
+  }
+
+   stmt_block
+   { 
+    string label_endwhile = pop_label();
+    string label_while = pop_label();
+    jmp(label_while);
+    label(label_endwhile);
+   }  
+
+/* ---                        I/O                              -- */
+
+| TK_PRINT TK_LPAR expr TK_RPAR TK_SEMI
+    {
+      call_runtime("print_int");
+      call_runtime("print_newline");
+    }
+
+| TK_INPUT TK_LPAR TK_ID TK_RPAR TK_SEMI
+    {
+      call_runtime("input_char");
+      raw("\tpush\trax");
+      mpush('0');
+      sub();
+      pop(get_address($3));
+    }
+;
+
+stmt_else:
+| TK_ELSE stmt_block
+;
+
+stmt_block:
+  stmt
+| TK_LACC stmt_list TK_RACC
+
+stmt_list:
+| stmt_list stmt
+;
+
+
+/* -------------------------------------------------------------- */
+/*              4/ Variable declarations (e.g. int x,y;)          */
+/* -------------------------------------------------------------- */
+
+declare_local_vars:
+| declare_local_vars type TK_ID TK_SEMI { declare_variable($3); }
+;
+
+/* -------------------------------------------------------------- */
+/*      5/ *Main production* (program=declarations+statements)    */
+/* -------------------------------------------------------------- */
+
+prog: 
+declare_local_vars { label("main"); alloc(get_size()); } stmt_list { free(); stop(); }
+;

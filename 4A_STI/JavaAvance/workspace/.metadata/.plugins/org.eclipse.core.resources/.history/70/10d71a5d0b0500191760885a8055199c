@@ -1,0 +1,10 @@
+package filtre_de_boom;
+
+public class MD5Test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,8 @@
+main:
+	push	rbp
+	mov	rbp,rsp
+	sub	rsp,0
+	mov	rsp,rbp
+	pop	rbp
+	mov	rax,0
+	ret	

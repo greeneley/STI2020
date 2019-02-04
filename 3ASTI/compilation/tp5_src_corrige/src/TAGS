@@ -1,0 +1,745 @@
+
+Allocation.cc,303
+#define INFINITY 5,48
+Temporary::Temporary(7,75
+Allocation::only_precolored_nodes(25,344
+Allocation::degree(37,628
+Allocation::remaining_color(49,879
+Allocation::chaitin(74,1575
+Allocation::Allocation(146,3270
+ostream& operator <<(operator <<204,4796
+ostream& operator <<(operator <<214,4953
+
+Attributes.cc,89
+LhsExpr::LhsExpr(3,25
+LhsExpr* lhs(8,168
+RhsExpr::RhsExpr(12,303
+RhsExpr* rhs(17,405
+
+Backend.cc,173
+Cfg* digmips_cfg;15,238
+vector<int> marked;17,257
+vector<int> result_reg;18,307
+int select_root(20,332
+void select_dag(180,4671
+Cfg* select(196,5075
+backend(225,5607
+
+BasicBlock.cc,284
+BasicBlock::BasicBlock(6,46
+BasicBlock::get_read_register(19,340
+BasicBlock::get_write_register(26,414
+BasicBlock::get_label(33,486
+BasicBlock::is_jump(40,537
+BasicBlock::is_label(47,608
+BasicBlock::clone(54,672
+BasicBlock::to_string(65,853
+BasicBlock::to_string_dot(79,1044
+
+BitVector.cc,502
+#define INT_SIZE 9,163
+BitVector::BitVector(12,198
+BitVector::insert(20,311
+BitVector::insert(36,545
+BitVector::remove(44,640
+BitVector::is_empty(60,874
+BitVector::has(70,1004
+BitVector::operator ==(BitVector::operator ==83,1191
+BitVector::to_vector(97,1396
+BitVector::clone(109,1547
+BitVector& operator |(operator |118,1707
+BitVector& operator &(operator &144,2193
+BitVector& operator -(operator -171,2701
+BitVector::to_string_dot(198,3222
+ostream& operator <<(operator <<212,3403
+
+Cfg.cc,942
+Cfg::Cfg(7,134
+Cfg::add_node(11,155
+Cfg::set_live_in(35,671
+Cfg::set_live_out(42,778
+Cfg::fix_succ(49,890
+Cfg::do_liveness(61,1180
+Cfg::extract_basic_blocks(115,2437
+Cfg::print_dot(192,4460
+Cfg::show_dot(214,4969
+Cfg::print_code(229,5215
+Cfg::clone(237,5322
+ostream& operator <<(operator <<267,6034
+void add(289,6534
+void sub(294,6619
+void mul(299,6704
+void div(304,6789
+void mov_reg_int(309,6874
+void copy(314,6978
+void load(319,7066
+void store(324,7167
+void jump(329,7274
+void cjump(334,7340
+void call(339,7456
+void ret(344,7522
+void label(349,7587
+void push_all(354,7655
+void pop_all(359,7712
+void push(364,7767
+void pop(369,7826
+void load_arp(374,7883
+void store_arp(379,7967
+void add_sp_reg(384,8053
+void sub_sp_reg(389,8124
+void mov_reg_arp(394,8195
+void mov_reg_sp(399,8268
+void mov_sp_reg(404,8339
+void push_arp(409,8410
+void pop_arp(414,8467
+void mov_arp_sp(419,8522
+void mov_sp_arp(424,8583
+
+CodeDigmips.cc,1215
+#define RETURN_REGISTER 10,186
+#define SPILL0 11,212
+#define SPILL1 12,229
+#define SP 13,246
+#define ARP 14,259
+CodeDigmips::get_read_register(23,353
+CodeDigmips::get_write_register(29,427
+CodeDigmips::get_label(35,499
+CodeDigmips::is_jump(41,550
+CodeDigmips::is_label(49,687
+CodeDigmips::clone(56,770
+CodeDigmips::to_string(78,1151
+CodeDigmips::to_string_dot(146,2752
+CodeDigmips::read_r1(153,2813
+CodeDigmips::read_r2(166,3122
+CodeDigmips::read_r_dest(178,3397
+CodeDigmips::write_r_dest(186,3552
+void digmips_translate(199,3889
+void digmips_apply(305,6375
+void digmips_add(386,8419
+void digmips_sub(401,8767
+void digmips_ld(416,9115
+void digmips_st(430,9445
+void digmips_ble(444,9780
+void digmips_ldi(458,10086
+void digmips_ldi_lo(470,10353
+void digmips_ldi_hi(482,10618
+void digmips_ja(494,10883
+void digmips_j(508,11197
+void digmips_label(516,11369
+void digmips_push_all(524,11549
+void digmips_pop_all(531,11696
+void digmips_final_push_all(539,11842
+void digmips_final_pop_all(554,12091
+void cjump(569,12339
+void copy(614,13415
+void copy_(621,13569
+void push(627,13692
+void pop(639,13871
+void push_(651,14049
+void pop_(662,14201
+void call(674,14353
+void ret(695,14888
+
+Dag.cc,198
+Dag::Dag(6,111
+vector<int> is_marked;274,7667
+vector<vector<int> > is_marked_edge;275,7690
+Dag::simplify_rec(278,7772
+Dag::simplify(380,10313
+Dag::print_dot(418,10955
+Dag::show_dot(441,11485
+
+InterferenceGraph.cc,203
+#define SPILL0 8,147
+#define SPILL1 9,164
+#define SP 10,181
+#define ARP 11,194
+InterferenceGraph::InterferenceGraph(13,209
+InterferenceGraph::print_dot(74,1813
+InterferenceGraph::show_dot(91,2130
+
+Label.cc,169
+map<string,int> last_label;9,107
+vector<string> label_stack;10,135
+void reset_labels(12,164
+string new_label(18,271
+void push_label(34,589
+string pop_label(39,656
+
+main.cc,18
+int main(53,2281
+
+parser.cc,6485
+#define YYBISON 46,2102
+#define YYBISON_VERSION 49,2143
+#define YYSKELETON_NAME 52,2198
+#define YYPURE 55,2253
+#define YYPUSH 58,2292
+#define YYPULL 61,2331
+#define YYLSP_NEEDED 64,2373
+# define YYDEBUG 122,3542
+# undef YYERROR_VERBOSE127,3632
+# define YYERROR_VERBOSE 128,3656
+# define YYERROR_VERBOSE 130,3689
+# define YYTOKEN_TABLE 135,3779
+# define YYTOKENTYPE141,3848
+   enum yytokentype 144,3972
+     TK_INT_TYPE yytokentype::TK_INT_TYPE145,3994
+     TK_CHAR_TYPE yytokentype::TK_CHAR_TYPE146,4018
+     TK_VOID_TYPE yytokentype::TK_VOID_TYPE147,4043
+     TK_STRUCT yytokentype::TK_STRUCT148,4068
+     TK_TYPEDEF yytokentype::TK_TYPEDEF149,4090
+     TK_LPAR yytokentype::TK_LPAR150,4113
+     TK_RPAR yytokentype::TK_RPAR151,4133
+     TK_COMMA yytokentype::TK_COMMA152,4153
+     TK_SEMI yytokentype::TK_SEMI153,4174
+     TK_LACC yytokentype::TK_LACC154,4194
+     TK_RACC yytokentype::TK_RACC155,4214
+     TK_TRUE yytokentype::TK_TRUE156,4234
+     TK_FALSE yytokentype::TK_FALSE157,4254
+     TK_GREATER yytokentype::TK_GREATER158,4275
+     TK_GREATER_EQ yytokentype::TK_GREATER_EQ159,4298
+     TK_LOWER yytokentype::TK_LOWER160,4324
+     TK_LOWER_EQ yytokentype::TK_LOWER_EQ161,4345
+     TK_EQUAL yytokentype::TK_EQUAL162,4369
+     TK_NEQUAL yytokentype::TK_NEQUAL163,4390
+     TK_PLUS yytokentype::TK_PLUS164,4412
+     TK_MINUS yytokentype::TK_MINUS165,4432
+     TK_MUL yytokentype::TK_MUL166,4453
+     TK_DIV yytokentype::TK_DIV167,4472
+     TK_MOD yytokentype::TK_MOD168,4491
+     TK_PLUSPLUS yytokentype::TK_PLUSPLUS169,4510
+     TK_NUM yytokentype::TK_NUM170,4534
+     TK_ID yytokentype::TK_ID171,4553
+     TK_TYPE_ID yytokentype::TK_TYPE_ID172,4571
+     TK_CHAR yytokentype::TK_CHAR173,4594
+     TK_STRING yytokentype::TK_STRING174,4614
+     TK_LBRAC yytokentype::TK_LBRAC175,4636
+     TK_RBRAC yytokentype::TK_RBRAC176,4657
+     TK_REF yytokentype::TK_REF177,4678
+     TK_DOT yytokentype::TK_DOT178,4697
+     TK_ALLOC yytokentype::TK_ALLOC179,4716
+     TK_FREE yytokentype::TK_FREE180,4737
+     TK_ASSIGN yytokentype::TK_ASSIGN181,4757
+     TK_IF yytokentype::TK_IF182,4779
+     TK_ELSE yytokentype::TK_ELSE183,4797
+     TK_WHILE yytokentype::TK_WHILE184,4817
+     TK_FOR yytokentype::TK_FOR185,4838
+     TK_RETURN yytokentype::TK_RETURN186,4857
+     TK_ASM yytokentype::TK_ASM187,4879
+typedef union YYSTYPE194,4968
+} YYSTYPE;211,5162
+# define YYSTYPE_IS_TRIVIAL 212,5195
+# define yystype 213,5225
+# define YYSTYPE_IS_DECLARED 214,5287
+# undef short225,5441
+typedef YYTYPE_UINT8 yytype_uint8;229,5483
+typedef unsigned char yytype_uint8;231,5524
+typedef YYTYPE_INT8 yytype_int8;235,5587
+typedef signed char yytype_int8;238,5720
+typedef short int yytype_int8;240,5759
+typedef YYTYPE_UINT16 yytype_uint16;244,5819
+typedef unsigned short int yytype_uint16;246,5862
+typedef YYTYPE_INT16 yytype_int16;250,5932
+typedef short int yytype_int16;252,5973
+#  define YYSIZE_T 257,6052
+#  define YYSIZE_T 259,6107
+#  define YYSIZE_T 263,6313
+#  define YYSIZE_T 265,6346
+#define YYSIZE_MAXIMUM 269,6394
+#   define YY_(275,6540
+#  define YY_(279,6626
+# define YYUSE(285,6763
+# define YYUSE(287,6800
+# define YYID(292,6930
+#    define YYSTACK_ALLOC 315,7346
+#    define YYSTACK_ALLOC 319,7509
+#    define alloca 322,7629
+#    define YYSTACK_ALLOC 324,7665
+#      define _STDLIB_H 329,7929
+#  define YYSTACK_FREE(338,8076
+#   define YYSTACK_ALLOC_MAXIMUM 344,8473
+#  define YYSTACK_ALLOC 347,8555
+#  define YYSTACK_FREE 348,8588
+#   define YYSTACK_ALLOC_MAXIMUM 350,8650
+#    define _STDLIB_H 357,8934
+#   define YYMALLOC 361,8996
+#   define YYFREE 368,9263
+union yyalloc383,9746
+  yytype_int16 yyss_alloc;yyalloc::yyss_alloc385,9762
+  YYSTYPE yyvs_alloc;yyalloc::yyvs_alloc386,9789
+# define YYSTACK_GAP_MAXIMUM 390,9890
+# define YYSTACK_BYTES(394,10038
+#   define YYCOPY(402,10298
+#   define YYCOPY(405,10405
+# define YYSTACK_RELOCATE(421,10896
+#define YYFINAL 435,11316
+#define YYLAST 437,11375
+#define YYNTOKENS 440,11438
+#define YYNNTS 442,11501
+#define YYNRULES 444,11556
+#define YYNSTATES 446,11614
+#define YYUNDEFTOK 449,11711
+#define YYMAXUTOK 450,11733
+#define YYTRANSLATE(452,11758
+static const yytype_uint8 yytranslate[yytranslate456,11934
+static const yytype_uint8 yyprhs[yyprhs494,14277
+static const yytype_int8 yyrhs[yyrhs508,14970
+static const yytype_uint16 yyrline[yyrline539,16964
+static const char *const yytname[yytname556,17793
+static const yytype_uint16 yytoknum[yytoknum578,18905
+static const yytype_uint8 yyr1[yyr1589,19362
+static const yytype_uint8 yyr2[yyr2603,20073
+static const yytype_uint8 yydefact[yydefact619,20879
+static const yytype_int16 yydefgoto[yydefgoto640,22106
+#define YYPACT_NINF 650,22500
+static const yytype_int16 yypact[yypact651,22525
+static const yytype_int8 yypgoto[yypgoto672,23748
+#define YYTABLE_NINF 684,24286
+static const yytype_int16 yytable[yytable685,24311
+static const yytype_uint8 yycheck[yycheck708,25741
+static const yytype_uint8 yystos[yystos733,27268
+#define yyerrok	753,28464
+#define yyclearin	754,28499
+#define YYEMPTY	755,28536
+#define YYEOF	756,28558
+#define YYACCEPT	758,28576
+#define YYABORT	759,28610
+#define YYERROR	760,28643
+#define YYFAIL	767,28881
+#define YYRECOVERING(769,28912
+#define YYBACKUP(771,28953
+#define YYTERROR	789,29381
+#define YYERRCODE	790,29400
+#define YYRHSLOC(797,29606
+# define YYLLOC_DEFAULT(799,29665
+#  define YY_LOCATION_PRINT(825,30578
+#  define YY_LOCATION_PRINT(830,30758
+# define YYLEX 838,30903
+# define YYLEX 840,30944
+#  define YYFPRINTF 848,31102
+# define YYDPRINTF(851,31139
+# define YY_SYMBOL_PRINT(857,31246
+    int yytype;882,31960
+    YYSTYPE const * const yyvaluep;883,31976
+    int yytype;914,32616
+    YYSTYPE const * const yyvaluep;915,32632
+    yytype_int16 *yytop;yytop940,33442
+  for (; yybottom 944,33511
+      default: break;2441,70863
+  yylen 2446,70995
+  *++yyvsp yyvsp2449,71041
+  yyn 2455,71228
+  yystate 2457,71248
+    yystate 2461,71405
+  goto yynewstate;2463,71448
+  goto yyerrlab1;2534,72978
+  yylen 2551,73483
+  yystate 2553,73528
+  goto yyerrlab1;2554,73548
+  yyerrstatus 2561,73774
+      yyn 2565,73859
+      yystate 2585,74278
+  *++yyvsp yyvsp2589,74345
+  yystate 2595,74460
+  goto yynewstate;2596,74477
+  yyresult 2603,74634
+  goto yyreturn;2604,74650
+  yyresult 2610,74797
+  goto yyreturn;2611,74813
+  yyresult 2619,75087
+
+parser.ypp,1683
+#define PTR_SIZE 43,
+#define RETURN_REGISTER 44,
+int		line_number	47,
+Cfg* cfg;51,
+map<string,Type*> current_record;53,
+vector<Type*> arg_type;54,
+Type* current_return_type;55,
+string label_end_function;56,
+void yyerror(59,
+void error(65,
+  int integer;YYSTYPE::integer79,
+  char* id_string;YYSTYPE::id_string80,
+  Type* type;YYSTYPE::type82,
+  LhsExpr* lhs_expr;YYSTYPE::lhs_expr83,
+  RhsExpr* rhs_expr;YYSTYPE::rhs_expr84,
+      vector<Type*> args;247,
+      int result_register 251,
+      (yyval.rhs_expr)rhs_expr253,
+    break;255,
+    break;265,
+    break;267,
+    break;280,
+    break;290,
+    break;299,
+    break;301,
+  case 303,
+    break;310,
+  case 312,
+    break;316,
+  case 318,
+    break;342,
+    break;346,
+    break;351,
+    break;357,
+    break;359,
+  case 361,
+    break;369,
+  case 371,
+    break;382,
+  case 384,
+    break;404,
+  case 406,
+    break;431,
+    break;434,
+    break;440,
+  case 442,
+    break;467,
+  case 469,
+    break;487,
+  case 489,
+    break;507,
+  case 509,
+    break;527,
+  case 529,
+    break;547,
+  case 549,
+    break;567,
+    break;569,
+    break;595,
+    break;611,
+  case 613,
+    break;625,
+  case 627,
+    break;635,
+  case 637,
+    break;640,
+  case 642,
+    break;649,
+  case 651,
+    break;660,
+  case 662,
+    break;667,
+  case 669,
+    break;678,
+  case 680,
+    break;687,
+  case 689,
+    break;702,
+    break;717,
+    break;725,
+    break;738,
+  case 740,
+    break;801,
+  case 803,
+    break;808,
+  case 810,
+    break;817,
+    break;829,
+    break;834,
+    break;844,
+  case 846,
+    break;853,
+    break;873,
+    break;922,
+
+PseudoCode.cc,1710
+PseudoCode::PseudoCode(6,96
+PseudoCode::PseudoCode(39,853
+PseudoCode::PseudoCode(74,1464
+PseudoCode::PseudoCode(86,1729
+PseudoCode::PseudoCode(103,2075
+PseudoCode::PseudoCode(126,2544
+PseudoCode::get_read_register(135,2696
+PseudoCode::get_write_register(142,2770
+PseudoCode::get_label(149,2841
+PseudoCode::is_jump(156,2895
+PseudoCode::is_label(163,2982
+PseudoCode::clone(170,3055
+PseudoCode::is_leaf(193,3466
+PseudoCode::is_ldi(213,3938
+PseudoCode::is_copy(220,4006
+PseudoCode::is_unary(227,4068
+PseudoCode::is_binary(239,4298
+PseudoCode::is_write(251,4505
+PseudoCode::has_side_effect(268,4863
+PseudoCode::to_string(294,5510
+PseudoCode::to_string_dot(412,8072
+PseudoCode* pseudo_add(418,8128
+PseudoCode* pseudo_sub(423,8227
+PseudoCode* pseudo_mul(428,8326
+PseudoCode* pseudo_div(433,8425
+PseudoCode* pseudo_mov_reg_int(438,8524
+PseudoCode* pseudo_copy(443,8640
+PseudoCode* pseudo_load(448,8742
+PseudoCode* pseudo_store(453,8857
+PseudoCode* pseudo_jump(458,8978
+PseudoCode* pseudo_cjump(463,9058
+PseudoCode* pseudo_call(468,9188
+PseudoCode* pseudo_ret(473,9268
+PseudoCode* pseudo_label(478,9347
+PseudoCode* pseudo_push_all(483,9429
+PseudoCode* pseudo_pop_all(488,9499
+PseudoCode* pseudo_push(493,9567
+PseudoCode* pseudo_pop(498,9640
+PseudoCode* pseudo_load_arp(503,9711
+PseudoCode* pseudo_store_arp(508,9809
+PseudoCode* pseudo_add_sp_reg(513,9909
+PseudoCode* pseudo_sub_sp_reg(518,9994
+PseudoCode* pseudo_mov_reg_arp(523,10079
+PseudoCode* pseudo_mov_reg_sp(528,10166
+PseudoCode* pseudo_mov_sp_reg(533,10251
+PseudoCode* pseudo_push_arp(538,10336
+PseudoCode* pseudo_pop_arp(543,10406
+PseudoCode* pseudo_mov_arp_sp(548,10474
+PseudoCode* pseudo_mov_sp_arp(553,10548
+
+Register.cc,109
+int last_register;30,1903
+void reset_registers(32,1923
+int new_register(38,2042
+int nb_registers(44,2110
+
+SymbolTable.cc,911
+#define PTR_SIZE 32,1938
+map<string,Type*> type;40,2018
+void add_type(44,2059
+Type* get_type(59,2345
+void normalize_type(73,2631
+void normalize_types(97,3280
+vector<string> argument;151,4445
+vector<string> local_var;152,4470
+map<string,Type*> argument_type;154,4497
+map<string,Type*> local_var_type;155,4530
+map<string,int> argument_reg;157,4565
+map<string,int> local_var_reg;158,4595
+void reset_variables(161,4628
+void add_argument(172,4966
+void add_local_var(191,5403
+Type* get_variable_type(210,5857
+int get_register(229,6285
+map<string,vector<Type*> > function_arg_type;261,7029
+map<string,Type*> function_return_type;262,7075
+string current_function_id;264,7116
+void reset_functions(266,7145
+void add_function(294,7728
+void add_argument_type(310,8136
+Type* return_type(316,8237
+void type_check(331,8582
+void prelude(360,9319
+void postlude(404,10374
+void print_symbols(418,10623
+
+test.cc,134
+class A 6,62
+A::bar(15,138
+class B:B20,170
+  B(B::B24,211
+B::foo(28,227
+ string operator +(operator +39,351
+int main(49,485
+
+Type.cc,727
+#define PTR_SIZE 9,165
+Type::Type(16,333
+Type::Type(22,391
+Type::Type(30,526
+Type::Type(39,698
+Type::Type(52,1025
+Type::is_base(62,1177
+Type::is_well_formed(75,1446
+int belong(82,1553
+Type::is_well_formed_(92,1687
+vector<Type*> node1;147,3088
+vector<Type*> node2;148,3109
+int equiv(150,3131
+int Type::operator==(Type::operator==212,4554
+Type::un_ref(223,4685
+Type::un_index(236,4874
+Type::un_field(249,5062
+Type::get_field_rank(271,5553
+Type::allocate(293,6005
+Type::clone(434,9143
+vector<Type*> node;463,9730
+map<Type*,int> node_index;464,9781
+Type::print_dot(467,9818
+Type::show_dot(505,10878
+Type::get_nodes(534,11471
+ostream& operator <<(operator <<557,11968
+string string_of_type_id(610,12921
+
+lexer.cc,6402
+#define  YY_INT_ALIGNED 5,40
+#define FLEX_SCANNER9,118
+#define YY_FLEX_MAJOR_VERSION 10,139
+#define YY_FLEX_MINOR_VERSION 11,171
+#define YY_FLEX_SUBMINOR_VERSION 12,203
+#define FLEX_BETA14,272
+#define FLEXINT_H30,570
+#define __STDC_LIMIT_MACROS 40,881
+typedef int8_t flex_int8_t;44,941
+typedef uint8_t flex_uint8_t;45,969
+typedef int16_t flex_int16_t;46,999
+typedef uint16_t flex_uint16_t;47,1029
+typedef int32_t flex_int32_t;48,1061
+typedef uint32_t flex_uint32_t;49,1091
+typedef signed char flex_int8_t;51,1129
+typedef short int flex_int16_t;52,1162
+typedef int flex_int32_t;53,1194
+typedef unsigned char flex_uint8_t;54,1220
+typedef unsigned short int flex_uint16_t;55,1257
+typedef unsigned int flex_uint32_t;56,1299
+#define INT8_MIN 60,1385
+#define INT16_MIN 63,1448
+#define INT32_MIN 66,1515
+#define INT8_MAX 69,1586
+#define INT16_MAX 72,1648
+#define INT32_MAX 75,1712
+#define UINT8_MAX 78,1781
+#define UINT16_MAX 81,1845
+#define UINT32_MAX 84,1911
+#define YY_USE_CONST94,2081
+#define YY_USE_CONST101,2202
+#define yyconst 107,2304
+#define yyconst109,2332
+#define YY_NULL 113,2389
+#define YY_SC_TO_UI(120,2636
+#define BEGIN 126,2867
+#define YY_START 132,3066
+#define YYSTATE 133,3106
+#define YY_STATE_EOF(136,3189
+#define YY_NEW_FILE 139,3309
+#define YY_END_OF_BUFFER_CHAR 141,3348
+#define YY_BUF_SIZE 150,3614
+#define YY_BUF_SIZE 152,3646
+#define YY_STATE_BUF_SIZE 158,3796
+#define YY_TYPEDEF_YY_BUFFER_STATE161,3904
+typedef struct yy_buffer_state *YY_BUFFER_STATE;YY_BUFFER_STATE162,3939
+#define EOB_ACT_CONTINUE_SCAN 169,4044
+#define EOB_ACT_END_OF_FILE 170,4076
+#define EOB_ACT_LAST_MATCH 171,4106
+    #define YY_LESS_LINENO(173,4136
+#define yyless(176,4251
+#define unput(189,4606
+#define YY_TYPEDEF_YY_SIZE_T192,4681
+typedef size_t yy_size_t;193,4710
+#define YY_STRUCT_YY_BUFFER_STATE197,4778
+struct yy_buffer_state198,4812
+	FILE *yy_input_file;yy_buffer_state::yy_input_file200,4838
+	char *yy_ch_buf;yy_buffer_state::yy_ch_buf202,4861
+	char *yy_buf_pos;yy_buffer_state::yy_buf_pos203,4899
+	yy_size_t yy_buf_size;yy_buffer_state::yy_buf_size208,5042
+	int yy_n_chars;yy_buffer_state::yy_n_chars213,5152
+	int yy_is_our_buffer;yy_buffer_state::yy_is_our_buffer219,5314
+	int yy_is_interactive;yy_buffer_state::yy_is_interactive226,5552
+	int yy_at_bol;yy_buffer_state::yy_at_bol232,5719
+    int yy_bs_lineno;yy_buffer_state::yy_bs_lineno234,5736
+    int yy_bs_column;yy_buffer_state::yy_bs_column235,5782
+	int yy_fill_buffer;yy_buffer_state::yy_fill_buffer240,5917
+	int yy_buffer_status;yy_buffer_state::yy_buffer_status242,5939
+#define YY_BUFFER_NEW 244,5963
+#define YY_BUFFER_NORMAL 245,5987
+#define YY_BUFFER_EOF_PENDING 256,6485
+static size_t yy_buffer_stack_top 262,6593
+static size_t yy_buffer_stack_max 263,6663
+static YY_BUFFER_STATE * yy_buffer_stack 264,6729
+#define YY_CURRENT_BUFFER 272,6997
+#define YY_CURRENT_BUFFER_LVALUE 279,7293
+static char yy_hold_char;282,7435
+static int yy_n_chars;283,7461
+int yyleng;284,7532
+static char *yy_c_buf_p yy_c_buf_p287,7590
+static int yy_init 288,7628
+static int yy_start 289,7689
+static int yy_did_buffer_switch_on_eof;294,7868
+#define YY_FLUSH_BUFFER 308,8388
+#define yy_new_buffer 318,8724
+#define yy_set_interactive(320,8764
+#define yy_set_bol(330,9040
+#define YY_AT_BOL(340,9283
+typedef unsigned char YY_CHAR;342,9342
+FILE *yyin yyin344,9374
+typedef int yy_state_type;346,9421
+int yylineno 350,9471
+#define yytext_ptr 353,9511
+#define YY_DO_BEFORE_ACTION 363,9864
+#define YY_NUM_RULES 370,10027
+#define YY_END_OF_BUFFER 371,10051
+struct yy_trans_info374,10160
+	flex_int32_t yy_verify;yy_trans_info::yy_verify376,10184
+	flex_int32_t yy_nxt;yy_trans_info::yy_nxt377,10209
+static yyconst flex_int16_t yy_accept[yy_accept379,10235
+static yyconst flex_int32_t yy_ec[yy_ec397,11109
+static yyconst flex_int32_t yy_meta[yy_meta429,12831
+static yyconst flex_int16_t yy_base[yy_base438,13205
+static yyconst flex_int16_t yy_def[yy_def456,14113
+static yyconst flex_int16_t yy_nxt[yy_nxt474,15020
+static yyconst flex_int16_t yy_chk[yy_chk507,16796
+static yy_state_type yy_last_accepting_state;540,18572
+static char *yy_last_accepting_cpos;yy_last_accepting_cpos541,18618
+int yy_flex_debug 544,18682
+#define REJECT 549,18808
+#define yymore(550,18852
+#define YY_MORE_ADJ 551,18898
+#define YY_RESTORE_YY_MORE_OFFSET552,18920
+char *yytext;yytext553,18954
+#define INITIAL 594,21182
+#define comment 595,21200
+#define asm 596,21218
+#define YY_EXTRA_TYPE 607,21516
+#define YY_READ_BUF_SIZE 677,22795
+#define YY_READ_BUF_SIZE 679,22832
+#define ECHO 688,23072
+#define YY_INPUT(695,23282
+#define yyterminate(732,24196
+#define YY_START_STACK_INCR 737,24331
+#define YY_FATAL_ERROR(742,24421
+#define YY_DECL_IS_OURS 751,24654
+#define YY_DECL 755,24707
+#define YY_USER_ACTION762,24883
+#define YY_BREAK 767,24976
+#define YY_RULE_SETUP 770,25008
+static int yy_get_next_buffer 1298,35916
+    static yy_state_type yy_get_previous_state 1432,39505
+    static yy_state_type yy_try_NUL_trans 1464,40407
+    static void yyunput 1487,41079
+    static int yyinput 1526,42139
+    void yyrestart 1603,43900
+    void yy_switch_to_buffer 1620,44261
+static void yy_load_buffer_state 1651,45104
+    YY_BUFFER_STATE yy_create_buffer 1665,45577
+    void yy_delete_buffer 1693,46268
+    static void yy_init_buffer 1716,46793
+    void yy_flush_buffer 1744,47526
+void yypush_buffer_state 1773,48212
+void yypop_buffer_state 1803,48977
+static void yyensure_buffer_stack 1822,49372
+YY_BUFFER_STATE yy_scan_buffer 1871,50988
+YY_BUFFER_STATE yy_scan_string 1908,52061
+YY_BUFFER_STATE yy_scan_bytes 1921,52478
+#define YY_EXIT_FAILURE 1952,53201
+static void yy_fatal_error 1955,53235
+#undef yyless1963,53414
+#define yyless(1964,53428
+int yyget_lineno 1983,53887
+FILE *yyget_in yyget_in1992,53981
+FILE *yyget_out yyget_out2000,54065
+int yyget_leng 2008,54165
+char *yyget_text yyget_text2017,54252
+void yyset_lineno 2026,54368
+void yyset_in 2038,54593
+void yyset_out 2043,54654
+int yyget_debug 2048,54719
+void yyset_debug 2053,54778
+static int yy_init_globals 2058,54848
+int yylex_destroy 2087,55530
+static void yy_flex_strncpy 2113,56084
+static int yy_flex_strlen 2122,56245
+void *yyalloc yyalloc2132,56362
+void *yyrealloc yyrealloc2137,56433
+void yyfree 2149,56889
+#define YYTABLES_NAME 2154,56983
+
+lexer.l,0

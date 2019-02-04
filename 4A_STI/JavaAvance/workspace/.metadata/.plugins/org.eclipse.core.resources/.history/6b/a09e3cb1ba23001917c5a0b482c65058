@@ -1,0 +1,59 @@
+package tp;
+
+import java.util.ArrayList;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+public class main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		ArrayList<String> scripts = new ArrayList<String>();
+		scripts.add("test3");
+		scripts.add("test4");
+		scripts.add("test5"); 
+		// CREE LA RESSOURCE
+		Ressource r1 = new Ressource(scripts);
+
+		// ========================================
+		// >>>>>>>> Question 1-A <<<<<<<<<<<<<<<<<<
+		// =======================================
+
+		// CREE 5 LECTEUR 
+		Lecteur l1 = new Lecteur(1, r1);
+		Lecteur l2 = new Lecteur(2, r1);
+		Lecteur l3 = new Lecteur(3, r1);
+		Lecteur l4 = new Lecteur(4, r1);
+		Lecteur l5 = new Lecteur(5, r1);
+		
+		// CREE 3 REDACTEUR
+		Redacteur red1 = new Redacteur(1,r1, "tata");
+		Redacteur red2 = new Redacteur(2,r1, "hello");
+		Redacteur red3 = new Redacteur(3,r1, "ajinomoto");
+		
+		red1.start();
+		red2.start();
+		red3.start();
+		
+		l1.start();
+		// Question 1-b
+		
+//		ExecutorService pool = Executors.newFixedThreadPool(3);
+//		pool.submit(red1);
+//		pool.submit(red2);
+//		pool.submit(red3);
+//		pool.submit(red4);
+//		try {
+//			red1.start();
+//			red2.start();
+//			red3.start();
+//			red4.start();
+//		} catch (Exception e) {
+//            e.printStackTrace();
+//		}
+//		pool.shutdown();
+//		
+		// FINISH QUESTION 1-B
+	}
+
+}

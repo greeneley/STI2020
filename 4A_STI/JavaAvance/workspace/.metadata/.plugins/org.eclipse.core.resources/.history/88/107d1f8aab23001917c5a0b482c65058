@@ -1,0 +1,9 @@
+package tp;
+
+public class Lecteur extends Thread{
+	private String chaine;
+	
+	public Lecteur(Ressource r1) {
+		this.chaine = r1.getChaine();
+	}
+}

@@ -1,0 +1,9 @@
+package tp;
+
+public class Ressource {
+	piblic ArrayList<String> chaine = new ArrayList<String>();
+	public Ressource() {
+		
+	}
+	
+}

@@ -1,0 +1,11 @@
+package tp;
+
+public class Ressource {
+	public String chaine;
+
+	public Ressource(String chaine) {
+		super();
+		this.chaine = chaine;
+	}
+	
+}

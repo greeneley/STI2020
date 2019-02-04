@@ -1,0 +1,27 @@
+package tp;
+
+import java.util.ArrayList;
+
+public class Lecteur extends Thread{
+	private ArrayList<String> chaine = new ArrayList<String>();
+	private Integer index; // INDEX est lecteur index-eme
+	public Lecteur(Integer index, Ressource r1) {
+		super();
+		this.chaine = r1.getChaine();
+		this.index = index;
+	}
+	public void run() {
+		for(int i = 0; i<5; i++) {
+			System.out.println("Des characters dans le lecteur: "+ index );
+			for (int j = 0; j < chaine.size(); j++)
+		      {
+		         System.out.println(chaine.get(j).toString());
+		      }
+			try {
+				Thread.sleep(5000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+}
